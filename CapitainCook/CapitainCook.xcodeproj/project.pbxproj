@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6ED09EE728DA7CB400EA968C /* RainFall.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6ED09EE628DA7CB400EA968C /* RainFall.sks */; };
 		6EFDEDBD28DA370600B65176 /* CapitainCookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDEDBC28DA370600B65176 /* CapitainCookApp.swift */; };
 		6EFDEDBF28DA370600B65176 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDEDBE28DA370600B65176 /* ContentView.swift */; };
 		6EFDEDC128DA370700B65176 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDEDC028DA370700B65176 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6ED09EE628DA7CB400EA968C /* RainFall.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RainFall.sks; sourceTree = "<group>"; };
 		6EFDEDB928DA370600B65176 /* CapitainCook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapitainCook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EFDEDBC28DA370600B65176 /* CapitainCookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapitainCookApp.swift; sourceTree = "<group>"; };
 		6EFDEDBE28DA370600B65176 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				6EFDEDCA28DA388700B65176 /* SplashScreen.swift */,
 				6EFDEDC028DA370700B65176 /* Assets.xcassets */,
 				6EFDEDC228DA370700B65176 /* Preview Content */,
+				6ED09EE628DA7CB400EA968C /* RainFall.sks */,
 			);
 			path = CapitainCook;
 			sourceTree = "<group>";
@@ -133,6 +136,7 @@
 			files = (
 				6EFDEDC428DA370700B65176 /* Preview Assets.xcassets in Resources */,
 				6EFDEDC128DA370700B65176 /* Assets.xcassets in Resources */,
+				6ED09EE728DA7CB400EA968C /* RainFall.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

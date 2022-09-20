@@ -5,6 +5,12 @@
 //  Created by Leander Van Aarde on 2022/09/20.
 
 import SwiftUI
+import SpriteKit
+extension UIScreen{
+   static let screenWidth = UIScreen.main.bounds.size.width
+   static let screenHeight = UIScreen.main.bounds.size.height
+   static let screenSize = UIScreen.main.bounds.size
+}
 
 struct SplashScreen: View {
     @State private var isActive:Bool = false
@@ -15,7 +21,12 @@ struct SplashScreen: View {
     @State var currentColor = Color("Orange")
     @State var currentImage = "Hat"
     @State var textImage = "Moustache"
+    @State var backgroundHat = "BlackHat"
+    @State var animationScale = false
+    @State var number = 0.0
+    @State var widthNumber = 0.0
     @AppStorage("hasOpened") private var hasOpened = false
+    
     
     
     var foreverAnimation: Animation {
@@ -33,16 +44,22 @@ struct SplashScreen: View {
                 }
             } else{
                 ZStack{
+                    
                     currentColor.ignoresSafeArea(.all)
+                    .ignoresSafeArea(.all)
+                    
+                    SpriteView(scene: RainFall(), options: [.allowsTransparency])
+                
                         Image(currentImage)
                             .resizable()
                             .scaledToFit()
                             .frame(width:300,height:300)
                             .position(x: UIScreen.main.bounds.width / 2 , y: UIScreen.main.bounds.height / 2.6 )
                     
+                    
                     if showProgress {
+                        
                         Image(textImage)
-               
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width:200,height:200)
@@ -58,22 +75,26 @@ struct SplashScreen: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(width:300,height:300)
                     }
+                    
+                    
                 }
                 .onAppear {
                     self.showProgress = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.3) {
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now()+3.0){
                         withAnimation{
                             self.currentColor = Color("Yellow")
                             self.currentImage = "DarkHat"
                             self.textImage = "DarkMoustache"
                         }
                     }
-                                        
-                    DispatchQueue.main.asyncAfter(deadline: .now()+5.0){
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now()+7.0){
                         withAnimation{
                             self.isActive = true
                         }
                     }
+
                 }
             }
         }
@@ -86,5 +107,18 @@ struct SplashScreen_Previews: PreviewProvider {
 
     }
 }
+
+class RainFall: SKScene{
+    override func sceneDidLoad() {
+        size = UIScreen.main.bounds.size
+        scaleMode = .resizeFill
+        backgroundColor = .clear
+        anchorPoint = CGPoint(x: 0.5, y: 1)
+        let node = SKEmitterNode(fileNamed: "RainFall.sks")!
+        addChild(node)
+        node.particlePositionRange.dx = UIScreen.screenWidth
+    }
+}
+
 
 
