@@ -11,7 +11,11 @@ import SwiftUI
 struct CapitainCookApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView(){
+                SplashScreen()
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
+            }
         }
     }
 }

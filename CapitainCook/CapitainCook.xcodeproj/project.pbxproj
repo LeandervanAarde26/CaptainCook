@@ -11,6 +11,8 @@
 		6EFDEDBF28DA370600B65176 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDEDBE28DA370600B65176 /* ContentView.swift */; };
 		6EFDEDC128DA370700B65176 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDEDC028DA370700B65176 /* Assets.xcassets */; };
 		6EFDEDC428DA370700B65176 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EFDEDC328DA370700B65176 /* Preview Assets.xcassets */; };
+		6EFDEDCB28DA388700B65176 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDEDCA28DA388700B65176 /* SplashScreen.swift */; };
+		6EFDEDCD28DA601700B65176 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFDEDCC28DA601700B65176 /* Onboarding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		6EFDEDBE28DA370600B65176 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6EFDEDC028DA370700B65176 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6EFDEDC328DA370700B65176 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6EFDEDCA28DA388700B65176 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		6EFDEDCC28DA601700B65176 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +56,9 @@
 			isa = PBXGroup;
 			children = (
 				6EFDEDBC28DA370600B65176 /* CapitainCookApp.swift */,
+				6EFDEDCC28DA601700B65176 /* Onboarding.swift */,
 				6EFDEDBE28DA370600B65176 /* ContentView.swift */,
+				6EFDEDCA28DA388700B65176 /* SplashScreen.swift */,
 				6EFDEDC028DA370700B65176 /* Assets.xcassets */,
 				6EFDEDC228DA370700B65176 /* Preview Content */,
 			);
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EFDEDCB28DA388700B65176 /* SplashScreen.swift in Sources */,
 				6EFDEDBF28DA370600B65176 /* ContentView.swift in Sources */,
+				6EFDEDCD28DA601700B65176 /* Onboarding.swift in Sources */,
 				6EFDEDBD28DA370600B65176 /* CapitainCookApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
