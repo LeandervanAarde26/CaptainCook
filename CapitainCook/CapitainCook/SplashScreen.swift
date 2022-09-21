@@ -1,9 +1,3 @@
-//
-//  SplashScreen.swift
-//  CapitainCook
-//
-//  Created by Leander Van Aarde on 2022/09/20.
-
 import SwiftUI
 import SpriteKit
 import Firebase
@@ -33,8 +27,6 @@ struct SplashScreen: View {
     @State var widthNumber = 0.0
     @AppStorage("hasOpened") private var hasOpened = false
     
-    
-    
     var foreverAnimation: Animation {
         Animation.linear(duration: 2.0)
             .repeatForever(autoreverses: false)
@@ -61,10 +53,8 @@ struct SplashScreen: View {
                             .scaledToFit()
                             .frame(width:300,height:300)
                             .position(x: UIScreen.main.bounds.width / 2 , y: UIScreen.main.bounds.height / 2.6 )
-                    
-                    
+
                     if showProgress {
-                        
                         Image(textImage)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -81,12 +71,10 @@ struct SplashScreen: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(width:300,height:300)
                     }
-                    
-                    
                 }
                 .onAppear {
                     self.showProgress = true
-                    
+            
                     DispatchQueue.main.asyncAfter(deadline: .now()+3.0){
                         withAnimation{
                             self.currentColor = Color("Yellow")
@@ -100,7 +88,6 @@ struct SplashScreen: View {
                             self.screenActive = true
                         }
                     }
-
                 }
             }
         }

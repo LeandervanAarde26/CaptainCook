@@ -1,7 +1,6 @@
 
 import SwiftUI
 
-
 struct ContentView: View {
     
     @AppStorage("hasOpened") private var hasOpened : Bool = false
@@ -18,7 +17,6 @@ struct ContentView: View {
            hasOpened = true
         }
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
