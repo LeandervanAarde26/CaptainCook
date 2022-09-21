@@ -1,13 +1,9 @@
-//
-//  ContentView.swift
-//  CapitainCook
-//
-//  Created by Leander Van Aarde on 2022/09/20.
-//
 
 import SwiftUI
 
+
 struct ContentView: View {
+    
     @AppStorage("hasOpened") private var hasOpened : Bool = false
     var body: some View {
     

@@ -6,6 +6,8 @@
 
 import SwiftUI
 import SpriteKit
+import Firebase
+import FirebaseFirestoreSwift
 extension UIScreen{
    static let screenWidth = UIScreen.main.bounds.size.width
    static let screenHeight = UIScreen.main.bounds.size.height
@@ -13,7 +15,11 @@ extension UIScreen{
 }
 
 struct SplashScreen: View {
-    @State private var isActive:Bool = false
+    private var db: Firestore
+    init(){
+        db = Firestore.firestore()
+    }
+    @State var screenActive:Bool = false
     @State private var shouldAnimate = false
     @State var show = false
     @State private var isAnimating = false
@@ -36,7 +42,7 @@ struct SplashScreen: View {
     @State private var rotation = 0.0
     var body: some View {
         VStack{
-            if self.isActive{
+            if self.screenActive{
                 if hasOpened{
                     ContentView()
                 } else{
@@ -91,7 +97,7 @@ struct SplashScreen: View {
                     
                     DispatchQueue.main.asyncAfter(deadline: .now()+7.0){
                         withAnimation{
-                            self.isActive = true
+                            self.screenActive = true
                         }
                     }
 
