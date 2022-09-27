@@ -10,7 +10,7 @@ import SwiftUI
 struct Onboarding: View {
 
     var body: some View {
-        NavigationLink(destination: ContentView()){
+        NavigationLink(destination: MainView()){
             VStack{
                Image("Logo")
                     .resizable()
@@ -19,8 +19,6 @@ struct Onboarding: View {
                 Text("View Recipes And Information!")
                     .foregroundColor(Color("Orange"))
                     .font(.largeTitle.weight(.bold))
-                  
-                    
             }
         }
     }

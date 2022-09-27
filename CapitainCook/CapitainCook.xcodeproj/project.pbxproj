@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E2FC16528E1C79E00032602 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2FC16428E1C79E00032602 /* MainView.swift */; };
+		6E2FC16728E1CA1000032602 /* AllRecipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2FC16628E1CA1000032602 /* AllRecipes.swift */; };
+		6E2FC16928E1CA5D00032602 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2FC16828E1CA5D00032602 /* Favorites.swift */; };
+		6E2FC16B28E1CA9800032602 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2FC16A28E1CA9800032602 /* Settings.swift */; };
 		6EC22C0428DB155F0016726D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 6EC22C0328DB155F0016726D /* FirebaseAnalytics */; };
 		6EC22C0628DB155F0016726D /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 6EC22C0528DB155F0016726D /* FirebaseAnalyticsOnDeviceConversion */; };
 		6EC22C0828DB155F0016726D /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6EC22C0728DB155F0016726D /* FirebaseAnalyticsSwift */; };
@@ -32,6 +36,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E2FC16428E1C79E00032602 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		6E2FC16628E1CA1000032602 /* AllRecipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRecipes.swift; sourceTree = "<group>"; };
+		6E2FC16828E1CA5D00032602 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
+		6E2FC16A28E1CA9800032602 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		6ED07E8A28DB0C9200C499AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6ED09EE628DA7CB400EA968C /* RainFall.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RainFall.sks; sourceTree = "<group>"; };
 		6EFDEDB928DA370600B65176 /* CapitainCook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapitainCook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +99,10 @@
 				6EFDEDCC28DA601700B65176 /* Onboarding.swift */,
 				6ED07E8A28DB0C9200C499AE /* GoogleService-Info.plist */,
 				6EFDEDBE28DA370600B65176 /* ContentView.swift */,
+				6E2FC16428E1C79E00032602 /* MainView.swift */,
+				6E2FC16A28E1CA9800032602 /* Settings.swift */,
+				6E2FC16828E1CA5D00032602 /* Favorites.swift */,
+				6E2FC16628E1CA1000032602 /* AllRecipes.swift */,
 				6EFDEDCA28DA388700B65176 /* SplashScreen.swift */,
 				6EFDEDC028DA370700B65176 /* Assets.xcassets */,
 				6EFDEDC228DA370700B65176 /* Preview Content */,
@@ -199,7 +211,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EFDEDCB28DA388700B65176 /* SplashScreen.swift in Sources */,
+				6E2FC16528E1C79E00032602 /* MainView.swift in Sources */,
 				6EFDEDBF28DA370600B65176 /* ContentView.swift in Sources */,
+				6E2FC16728E1CA1000032602 /* AllRecipes.swift in Sources */,
+				6E2FC16928E1CA5D00032602 /* Favorites.swift in Sources */,
+				6E2FC16B28E1CA9800032602 /* Settings.swift in Sources */,
 				6EFDEDCD28DA601700B65176 /* Onboarding.swift in Sources */,
 				6EFDEDBD28DA370600B65176 /* CapitainCookApp.swift in Sources */,
 			);

@@ -36,7 +36,7 @@ struct SplashScreen: View {
         VStack{
             if self.screenActive{
                 if hasOpened{
-                    ContentView()
+                    MainView()
                 } else{
                     Onboarding()
                 }
