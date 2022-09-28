@@ -16,11 +16,13 @@ struct ContentView: View {
         VStack(alignment: .leading, spacing: 0) {
             Text("Hello, World!")
                 .onAppear{
-                    hasOpened = true
+                    hasOpened = false
                 }
             }
+        
             .padding()
             .navigationBarTitle("Home")
+            .navigationBarBackButtonHidden(true)
             .foregroundColor(Color("Orange"))
             .navigationBarItems(trailing:
                 Image("Logo")
@@ -29,6 +31,7 @@ struct ContentView: View {
                     .frame(width: 100.0,height:100)
                     .padding(.top, 75)
             )
+           
         }
     }
 }

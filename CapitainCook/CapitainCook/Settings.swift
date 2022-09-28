@@ -12,17 +12,18 @@ struct Settings: View {
         NavigationView(){
             VStack(alignment: .leading, spacing: 0) {
                 Text("I am the Settings page!")
-                }
-                .padding()
-                .navigationBarTitle("Settings")
-                .navigationBarItems(trailing:
-                    Image("Logo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 100.0,height:100)
-                        .padding(.top, 75)
-                )
             }
+            .padding()
+            .navigationBarTitle("Settings")
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(trailing:
+                                    Image("Logo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 100.0,height:100)
+                .padding(.top, 75)
+            )
+        }
     }
 }
 

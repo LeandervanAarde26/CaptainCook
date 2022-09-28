@@ -15,6 +15,7 @@ struct Favorites: View {
                 }
                 .padding()
                 .navigationBarTitle("Favorites")
+                .navigationBarBackButtonHidden(true)
                 .navigationBarItems(trailing:
                     Image("Logo")
                         .resizable()
@@ -23,6 +24,7 @@ struct Favorites: View {
                         .padding(.top, 75)
                 )
             }
+        
     }
 }
 

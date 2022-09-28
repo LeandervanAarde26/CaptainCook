@@ -15,6 +15,7 @@ struct AllRecipes: View {
                 }
                 .padding()
                 .navigationBarTitle("Recipes")
+                .navigationBarBackButtonHidden(true)
                 .navigationBarItems(trailing:
                     Image("Logo")
                         .resizable()
@@ -23,6 +24,7 @@ struct AllRecipes: View {
                         .padding(.top, 75)
                 )
             }
+          
     }
 }
 
