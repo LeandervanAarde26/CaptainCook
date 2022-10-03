@@ -1,9 +1,3 @@
-//
-//  MainView.swift
-//  CapitainCook
-//
-//  Created by Leander Van Aarde on 2022/09/26.
-//
 
 import SwiftUI
 
@@ -36,6 +30,7 @@ struct MainView: View {
                     }.tag(3)
             }
             .accentColor(Color("Orange"))
+            .navigationBarBackButtonHidden(true)
     }
 }
 
