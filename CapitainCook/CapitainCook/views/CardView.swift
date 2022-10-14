@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct CardView <Content: View>: View{
-    
+//    var recipe: recipes
     var rating: String
     var cookTime: String
     var vegan : Bool
     var heading: String
-    var Image: String
+    var PreviewPhoto: String
     let content: Content
     
     init(rating: String, cookTime: String, vegan: Bool, heading: String, Image: String,  @ViewBuilder contentBuilder: () -> Content){
@@ -22,19 +22,27 @@ struct CardView <Content: View>: View{
         self.cookTime = cookTime
         self.vegan = vegan
         self.heading = heading
-        self.Image = Image
+        self.PreviewPhoto = Image
         self.content = contentBuilder()
+        
     }
     
     var body: some View {
-        RoundedRectangle(cornerRadius: 20)
-             .overlay(
+//        RoundedRectangle(cornerRadius: 20)
+//             .overlay(
+//        NavigationLink(Individual(recipe: recipe))
                 HStack{
-                    SwiftUI.Image(Image)
-                        .resizable()
-                        .scaledToFill()
-                        .frame( maxWidth: 90, maxHeight: 117)
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                    
+                    AsyncImage(url: URL(string: PreviewPhoto)){ image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .frame( minWidth: 60, maxWidth: 70, minHeight: 140, maxHeight: .infinity)
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                    } placeholder: {
+                        Image(systemName: "photo")
+                    }
+                    .frame(width: 70, height: 50)
                     
                     VStack{
                         
@@ -44,11 +52,12 @@ struct CardView <Content: View>: View{
                             .foregroundColor(.black)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.bottom, 2)
+                            .padding(.top)
                         
                         HStack{
                             SwiftUI.Image(systemName: "star.fill")
                                 .foregroundColor(Color("Yellow"))
-                            Text("Food Rating")
+                            Text("\(rating) stars")
                                 .font(.system(size: 16))
                                 .fontWeight(.medium)
                                 .foregroundColor(.black)
@@ -67,35 +76,54 @@ struct CardView <Content: View>: View{
                                 .padding(.bottom, 0.5)
                         }
                         
-                        vegan ?
+    
                         HStack{
-                            SwiftUI.Image(systemName: "leaf")
-                                .foregroundColor(.black)
-                            Text("Vegan friendly")
-                                .font(.system(size: 16))
-                                .fontWeight(.medium)
-                                .foregroundColor(.black)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.bottom, 0.5)
+                            if vegan {
+                                SwiftUI.Image(systemName: "leaf")
+                                    .foregroundColor(.black)
+                                Text("Vegan friendly")
+                                    .font(.system(size: 16))
+                                    .fontWeight(.medium)
+                                    .foregroundColor(.black)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                
+                            } else{
+                                SwiftUI.Image(systemName: "x.circle")
+                                    .foregroundColor(.red)
+                                Text("Not vegan Friendly")
+                                    .font(.system(size: 16))
+                                    .fontWeight(.medium)
+                                    .foregroundColor(.black)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
                         }
-                        :
-                        nil
+                        .padding(.bottom)
+                                    
                     }
                 }
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .foregroundColor(Color("Main"))
+                        .shadow(color: .black.opacity(0.2), radius: 4, x: 1, y: 2)
+                        .padding()
+                        .frame(minHeight: 180)
+                )
                 
-             )
-             .frame(maxWidth: .infinity, minHeight: 120)
-             .foregroundColor(Color("Main"))
-             .shadow(color: .black.opacity(0.2), radius: 4, x: 1, y: 2)
-         
-         Spacer()
+//             )
+//             .frame(maxWidth: .infinity)
+//             .foregroundColor(Color("Main"))
+//             .shadow(color: .black.opacity(0.2), radius: 4, x: 1, y: 2)
+//             .padding()
+        Spacer()
     }
 }
 
-struct CardView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardView(rating: "5", cookTime: "10 Minutes", vegan: true, heading: "Food Pizza",  Image: "TesterImage"){
-            MainView()
-        }
-    }
-}
+
+//struct CardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CardView(rating: "5", cookTime: "10 Minutes", vegan: true, heading: "Food Pizza",  Image: "TesterImage"){
+//            MainView()
+//        }
+//    }
+//}

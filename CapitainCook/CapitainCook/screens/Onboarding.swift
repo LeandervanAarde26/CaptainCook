@@ -69,7 +69,7 @@ struct Onboarding: View {
                         NavigationLink(destination:  MainView(), isActive: $showMain) {
                             Text("")
                         }
-                        Button("Show details") {
+                        Button("Next") {
                             withAnimation(.spring()) {
                                 if (currentLocation == 2){
                                     self.showMain = true

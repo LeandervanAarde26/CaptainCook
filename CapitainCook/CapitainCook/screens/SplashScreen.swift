@@ -1,7 +1,6 @@
 import SwiftUI
 import SpriteKit
-import Firebase
-import FirebaseFirestoreSwift
+
 extension UIScreen{
    static let screenWidth = UIScreen.main.bounds.size.width
    static let screenHeight = UIScreen.main.bounds.size.height
@@ -9,10 +8,7 @@ extension UIScreen{
 }
 
 struct SplashScreen: View {
-    private var db: Firestore
-    init(){
-        db = Firestore.firestore()
-    }
+
     @State var screenActive:Bool = false
     @State private var shouldAnimate = false
     @State var show = false
@@ -74,7 +70,6 @@ struct SplashScreen: View {
                 }
                 .onAppear {
                     self.showProgress = true
-            
                     DispatchQueue.main.asyncAfter(deadline: .now()+3.0){
                         withAnimation{
                             self.currentColor = Color("Yellow")

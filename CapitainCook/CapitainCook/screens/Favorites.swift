@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Favorites: View {
+//    var test: recipes = recipes(id: 1, name: "Food Pizza", Decscription: <#T##String#>, Image: <#T##String#>, Rating: <#T##Double#>)
     var body: some View {
         NavigationView(){
             VStack(alignment: .leading, spacing: 0) {

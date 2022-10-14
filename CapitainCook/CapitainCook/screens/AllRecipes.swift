@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AllRecipes: View {
+    @ObservedObject var model = viewModel()
+    @State var recipes: [recipes] = []
     
     @State private var searchText = ""
     var body: some View {
@@ -22,35 +24,43 @@ struct AllRecipes: View {
                     .foregroundColor(Color("Orange"))
                 
                 ScrollView{
-                    ForEach((1...10), id: \.self){ index in
-                        CardView(rating: "5", cookTime: "10 Minutes", vegan: true, heading: "Food Pizza",  Image: "TesterImage"){
+                    ForEach(model.allRecipes) { recipe in
+                        CardView(rating: String(recipe.Rating), cookTime: recipe.TotalCookTime, vegan: recipe.Vegan, heading: recipe.Name, Image: recipe.Image){
                             MainView()
                         }
-                        }
-                    .padding(.leading, 5)
-                    .padding(.trailing, 5)
                     }
+                }
                 
                 Spacer()
                 }
-                .padding()
-                .navigationBarTitle(Text("Recipes"), displayMode: .automatic)
-                .navigationBarBackButtonHidden(true)
-                .navigationBarItems(trailing:
-                    Image("Logo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 100.0,height:70)
-                        .padding(.top, 75)
-                )
+
+            .padding()
+            .navigationBarTitle("Recipes")
+            .navigationBarBackButtonHidden(true)
+            .foregroundColor(Color("Orange"))
+            .navigationBarItems(trailing:
+                Image("Logo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 70, height:70)
+                    .padding(.top, 75)
+            )
+            .onAppear(){
+                print("It worked bro")
+                model.getData()
+                self.recipes = model.allRecipes
+                print(recipes)
+
+            }
             }
         .frame(alignment: Alignment.top)
+
           
     }
 }
 
 struct AllRecipes_Previews: PreviewProvider {
     static var previews: some View {
-        AllRecipes()
+        MainView()
     }
 }

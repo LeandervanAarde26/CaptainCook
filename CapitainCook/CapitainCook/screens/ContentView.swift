@@ -1,23 +1,41 @@
 
 import SwiftUI
+import Firebase
 
 struct ContentView: View {
-
+    @ObservedObject var model = viewModel()
+    
     init() {
       let navBarAppearance = UINavigationBar.appearance()
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.orange]
       navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.orange]
+        
+//        model.getData()
+        
     }
+            
+    @AppStorage("hasOpened") private var hasOpened : Bool = true
     
-    @AppStorage("hasOpened") private var hasOpened : Bool = false
+    @State var recipes: [recipes] = []
     var body: some View {
         
     NavigationView(){
         VStack(alignment: .leading, spacing: 0) {
+            HStack{
+                Text("Home")
+                Spacer()
+                Image("Logo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxHeight: 70)
+                
+            }
+            Spacer()
+            Spacer()
             ScrollView(.horizontal){
               
                 HStack{
-                    ForEach((1...3), id: \.self){ index in
+                    ForEach( 1..<4 ){ index in
                         RoundedRectangle(cornerRadius: 20)
                             .aspectRatio(1.0, contentMode: .fit)
                             .frame(maxHeight: 150)
@@ -30,7 +48,7 @@ struct ContentView: View {
                                         .font(.system(size: 80))
 
                                 
-                                    Text("15")
+                                    Text("\(model.allRecipes.count)")
                                         .font(.system(size: 24))
                                         .fontWeight(.bold)
                                         .foregroundColor(.black)
@@ -46,49 +64,50 @@ struct ContentView: View {
                     }
                 }
             }
-            VStack{
+            Text("Top 3 Recipes")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .font(.system(size: 24))
+                .fontWeight(.bold)
+                .foregroundColor(.black)
+            ScrollView{
                 
-                Text("Top 3 Recipes")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.system(size: 24))
-                    .fontWeight(.bold)
-                    .foregroundColor(.black)
-                
-                
-                ScrollView{
-                    
-                    ForEach((1...3), id: \.self){ index in
-                        CardView(rating: "5", cookTime: "10 Minutes", vegan: true, heading: "Food Pizza",  Image: "TesterImage"){
-                            MainView()
-                        }
-                        .padding(.leading, 5)
-                        .padding(.trailing, 5)
+                VStack{
+                    ForEach(model.allRecipes.prefix(3)) { recipe in
+                        NavigationLink(destination: IndividualRecipe()){
+                            CardView(rating: String(recipe.Rating), cookTime: recipe.TotalCookTime, vegan: recipe.Vegan, heading: recipe.Name, Image: recipe.Image){
+                                MainView()
+                            }
                         }
                     }
+                }
             }
 
             Spacer()
-            }
-            .padding()
-            .navigationBarTitle("Home")
-            .navigationBarBackButtonHidden(true)
-            .foregroundColor(Color("Orange"))
-            .navigationBarItems(trailing:
-                Image("Logo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 70, height:70)
-                    .padding(.top, 75)
-            )
         }
+       
+        .padding()
+//        .navigationBarTitle("Home")
+//        .navigationBarBackButtonHidden(true)
+//        .foregroundColor(Color("Orange"))
+//        .navigationBarItems(trailing:
+//            Image("Logo")
+//                .resizable()
+//                .scaledToFit()
+//                .frame(width: 70, height:70)
+//                .padding(.top, 75)
+//        )
+        .onAppear(){
+            model.getData()
+            self.recipes = model.allRecipes
+        }
+    }
     .navigationBarBackButtonHidden(true)
-        
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-        
+        MainView()
+            .environmentObject(viewModel())
     }
 }
