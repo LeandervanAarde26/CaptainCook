@@ -11,6 +11,7 @@
 		6E2FC16728E1CA1000032602 /* AllRecipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2FC16628E1CA1000032602 /* AllRecipes.swift */; };
 		6E2FC16928E1CA5D00032602 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2FC16828E1CA5D00032602 /* Favorites.swift */; };
 		6E2FC16B28E1CA9800032602 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2FC16A28E1CA9800032602 /* Settings.swift */; };
+		6E6A727628FA00FE004E8EA4 /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6A727528FA00FE004E8EA4 /* Preview.swift */; };
 		6E80603128EB3870003E7194 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E80603028EB3870003E7194 /* CardView.swift */; };
 		6E80603328EB5185003E7194 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E80603228EB5185003E7194 /* SearchBar.swift */; };
 		6E80603528EB8DF3003E7194 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E80603428EB8DF3003E7194 /* Recipe.swift */; };
@@ -45,6 +46,7 @@
 		6E2FC16628E1CA1000032602 /* AllRecipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRecipes.swift; sourceTree = "<group>"; };
 		6E2FC16828E1CA5D00032602 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		6E2FC16A28E1CA9800032602 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		6E6A727528FA00FE004E8EA4 /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
 		6E80603028EB3870003E7194 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		6E80603228EB5185003E7194 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		6E80603428EB8DF3003E7194 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			children = (
 				6E80603028EB3870003E7194 /* CardView.swift */,
 				6E80603228EB5185003E7194 /* SearchBar.swift */,
+				6E6A727528FA00FE004E8EA4 /* Preview.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				6E80603128EB3870003E7194 /* CardView.swift in Sources */,
 				6E2FC16528E1C79E00032602 /* MainView.swift in Sources */,
 				6EFDEDBF28DA370600B65176 /* ContentView.swift in Sources */,
+				6E6A727628FA00FE004E8EA4 /* Preview.swift in Sources */,
 				6EB09FE928F9AFBB0023D14F /* IndividualRecipe.swift in Sources */,
 				6E2FC16728E1CA1000032602 /* AllRecipes.swift in Sources */,
 				6E2FC16928E1CA5D00032602 /* Favorites.swift in Sources */,

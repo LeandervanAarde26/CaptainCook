@@ -11,6 +11,7 @@ struct MainView: View {
                     .tabItem{
                         Image(systemName: "house")
                         Text("Home")
+                        
                     }.tag(1)
                 
                 Favorites()
@@ -30,7 +31,10 @@ struct MainView: View {
                         Image(systemName: "gear")
                         Text("Settings")
                     }.tag(3)
+                
+            
             }
+            .foregroundColor(.white)
             .accentColor(Color("Orange"))
             .navigationBarBackButtonHidden(true)
     }

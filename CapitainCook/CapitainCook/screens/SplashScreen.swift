@@ -21,7 +21,7 @@ struct SplashScreen: View {
     @State var animationScale = false
     @State var number = 0.0
     @State var widthNumber = 0.0
-    @AppStorage("hasOpened") private var hasOpened = false
+    @AppStorage("hasOpened") var hasOpened : Bool = false
     
     var foreverAnimation: Animation {
         Animation.linear(duration: 2.0)
