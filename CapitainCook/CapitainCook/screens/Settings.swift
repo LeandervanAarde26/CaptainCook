@@ -11,7 +11,64 @@ struct Settings: View {
     var body: some View {
         NavigationView(){
             VStack(alignment: .leading, spacing: 0) {
-                Text("I am the Settings page!")
+                Text("👨🏼‍💻 The Developer")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.bottom, 10)
+                    .foregroundColor(.black)
+                Text("Designed and Developed by Leander van Aarde 2022")
+                    .padding(.bottom, 10)
+                    .foregroundColor(.black)
+                    
+                Text("Technologies")
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .foregroundColor(.black)
+                
+                Spacer()
+                    .frame(height: 10)
+                
+                HStack{
+                    Image("SwiftUI")
+                    Spacer()
+                        .frame(width: 30)
+                    Text("SwiftUI")
+                        .foregroundColor(.black)
+                }
+                
+                Spacer()
+                    .frame(height: 10)
+                HStack{
+                    Image("Xcode")
+                    Spacer()
+                        .frame(width: 30)
+                    Text("Xcode")
+                        .foregroundColor(.black)
+                }
+                
+                Spacer()
+                    .frame(height: 10)
+                
+                HStack{
+                    Image("AWS")
+                        .resizable()
+                        .frame(maxWidth: 30, maxHeight: 40)
+                    
+                    Spacer()
+                        .frame(width: 30)
+                    
+                    Text("AWS S3 buckets")
+                        .foregroundColor(.black)
+                }
+                
+                Text("Available on all iOS devices")
+                    .foregroundColor(.black)
+                    .font(.headline)
+                    .padding(.top, 20)
+                
+                
+                                                    
             }
             .padding()
             .navigationBarTitle("Settings")
@@ -29,6 +86,6 @@ struct Settings: View {
 
 struct Settings_Previews: PreviewProvider {
     static var previews: some View {
-        Settings()
+        MainView()
     }
 }

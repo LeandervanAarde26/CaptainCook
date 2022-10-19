@@ -12,6 +12,11 @@ struct AllRecipes: View {
     @State var recipes: [recipes] = []
     
     @State private var searchText = ""
+    var searchResults:[recipes] {
+        return searchText.isEmpty ? model.allRecipes :
+        model.allRecipes.filter{$0.Name.contains(searchText)}
+    }
+    
     var body: some View {
         NavigationView(){
             VStack(alignment: .leading, spacing: 0) {
@@ -24,7 +29,7 @@ struct AllRecipes: View {
                     .foregroundColor(Color("Orange"))
                 
                 ScrollView{
-                    ForEach(model.allRecipes) { recipe in
+                    ForEach(searchResults) { recipe in
                         CardView(rating: String(recipe.Rating), cookTime: recipe.TotalCookTime, vegan: recipe.Vegan, heading: recipe.Name, Image: recipe.Image){
                             MainView()
                         }
