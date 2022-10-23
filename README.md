@@ -1,31 +1,31 @@
 <!-- Repository Information & Links-->
 <br />
 
-![GitHub repo size](https://img.shields.io/github/repo-size/LeandervanAarde/Recognition)
-![GitHub watchers](https://img.shields.io/github/watchers/LeandervanAarde/Recognition)
-![GitHub language count](https://img.shields.io/github/languages/count/LeandervanAarde/Recognition)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/LeandervanAarde/Recognition)
-![GitHub dependancies](https://img.shields.io/depfu/dependencies/github/LeandervanAarde/Recognition)
+![GitHub repo size](https://img.shields.io/github/repo-size/LeandervanAarde/CaptainCook)
+![GitHub watchers](https://img.shields.io/github/watchers/LeandervanAarde/CaptainCook)
+![GitHub language count](https://img.shields.io/github/languages/count/LeandervanAarde/CaptainCook)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/LeandervanAarde/CaptainCook)
+![GitHub dependancies](https://img.shields.io/depfu/dependencies/github/LeandervanAarde/CaptainCook)
 
 <!-- LeandervanAarde/nhl -->
 
 <!-- HEADER SECTION -->
 <h3 align="center" style="padding:0;margin:0;">Leander van Aarde</h3>
 <h5 align="center" style="padding:0;margin:0;">200211</h5>
-<h6 align="center">Android 203 | 2022</h6>
+<h6 align="center">iOS introduction | 2022</h6>
 </br>
 <p align="center">
 
-  <a href="https://github.com/LeandervanAarde/Recognition">
+  <a href="https://github.com/LeandervanAarde/CaptainCook">
     <img src="https://drive.google.com/uc?export=view&id=1zHgXaETcBDaKuOiRy--rqpkdl5Ppi4vV" alt="Logo" width="140">
   </a>
 
 <!-- https://drive.google.com/file/d/19JkfDgvGLzHQ1AVMvgv9rLTFR0HzJBVq/view?usp=sharing -->
   
-  <h3 align="center">Recognition mobile trivia Application</h3>
+  <h3 align="center">Captain Cook Recipes Library</h3>
 
   <p align="center">
-  A Trivia Application for Android cellphones, build with Kotlin and in Android Studio!
+  An application for a library of Recipes, built using Xcode, SwiftUI, CoreData? AWS S3 Buckets
     <br />
 
    <br />
@@ -33,9 +33,9 @@
    <a href="path/to/demonstration/video">View Demo</a> 
    <!-- INSERT UP UP -->
     ·
-    <a href="https://github.com/LeandervanAarde/Recognition/issues">Report Bug</a>
+    <a href="https://github.com/LeandervanAarde/CaptainCook/issues">Report Bug</a>
     ·
-    <a href="https://github.com/LeandervanAarde/Recognition/issues">Request Feature</a>
+    <a href="https://github.com/LeandervanAarde/CaptainCook/issues">Request Feature</a>
 </p>
 <!-- TABLE OF CONTENTS -->
 
@@ -73,12 +73,12 @@
 
 ### Project Description
 
-<p>Welcome to Recognition! a trivia application that has been built for Android devices, more specifically Cellphones. This application is set out to challenge your knowledge on entertainment related subjects such as memes, celebreties and movies! Recognition tests your ability to remember things based on a visual, thus the name "Recognition" </p>
+<p>Welcome to Captain Cook! An application built for iOS devices using Xcode and swift UI, the application is built to let users view and favorite recipes that have been put onto the application, start capitaining your cook today! </p>
 
 ### Built With
-* [Android Studio](https://developer.android.com/studio?gclid=Cj0KCQjwjIKYBhC6ARIsAGEds-KcfNuiOxkpdKAShthPdR_AaVf7LyCKH9HruSDsDGiJN3LxWyHn6L4aAm0ZEALw_wcB&gclsrc=aw.ds)
-* XML
-* Kotlin
+* [Xcode](https://developer.apple.com/xcode/)
+* [SwiftUI](https://developer.apple.com/xcode/swiftui/)
+* [AWS S3 Buckets](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Categories=categories%23storage&trk=66264cd8-3b73-416c-9693-ea7cf4fe846a&sc_channel=ps&s_kwcid=AL!4422!3!536393910145!e!!g!!aws%20s3&ef_id=CjwKCAjwzNOaBhAcEiwAD7Tb6F0SHWA5Ms9NZTo5AhXS4lkyrU2cGgtOB6RsF3okO4uVey7wUHrUKhoCTkQQAvD_BwE:G:s&s_kwcid=AL!4422!3!536393910145!e!!g!!aws%20s3&awsf.Free%20Tier%20Types=*all)
 
 ## Getting Started
 
@@ -93,18 +93,18 @@ The [GitHub Desktop](https://desktop.github.com/) program will be required.
 Here are a couple of ways to clone this repo:
 
 1. GitHub Desktop </br>
-Enter `https://github.com/LeandervanAarde/cde-booking.git` into the URL field and press the `Clone` button.
+Enter `https://github.com/LeandervanAarde/CaptainCook.git` into the URL field and press the `Clone` button.
 
 2. Clone Repository </br>
 Run the following in the command-line to clone the project:
    ```sh
-   git clone https://github.com/LeandervanAarde/Recognition.git
+   git clone https://github.com/LeandervanAarde/CaptainCook.git
    ```
     Open `Software` and select `File | Open...` from the menu. Select cloned directory and press `Open` button
 
-3. Ensure you have Android studio installed on your local machine 
+3. Ensure you have Xcode installed on your local machine (Mac or a virtualMachine of Mac)
 ```sh
-https://developer.android.com/studio?gclid=Cj0KCQjwjIKYBhC6ARIsAGEds-JHh4MRMZM1lk3tNuS5BAaezi-IoCqMSo302EGhP340HWa9_ZNjtm8aAvmnEALw_wcB&gclsrc=aw.ds
+https://developer.apple.com/xcode/
 ```
 
 <!-- FEATURES AND FUNCTIONALITY-->
@@ -115,8 +115,8 @@ https://developer.android.com/studio?gclid=Cj0KCQjwjIKYBhC6ARIsAGEds-JHh4MRMZM1l
 
 ![image2](https://drive.google.com/uc?export=view&id=1JrKOl34AXmAOUkeYZ_hkI7sUGl52Et1u)
 
-### See all categories that are available along with amount of questions in that category! 
-See all the categories that are available in Recognition along with the highscores that have been set in each category, see how many questions are in each category! 
+### View all recipes that are available on the app, pulled from AWS! 
+You can view all the recipes and their previews on the app, all data that is sitting on an AWS S3 Bucket JSON file!
 
 ### Answer questions through visual recognition
 Answer all questions through a visual hint above the question! Recognize your way to a highscore in each category.
