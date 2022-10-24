@@ -17,7 +17,7 @@
 <p align="center">
 
   <a href="https://github.com/LeandervanAarde/CaptainCook">
-    <img src="https://drive.google.com/uc?export=view&id=1zHgXaETcBDaKuOiRy--rqpkdl5Ppi4vV" alt="Logo" width="140">
+    <img src="https://drive.google.com/uc?export=view&id=1W9S_0YqEhj0WQ3Ke7QfrxAqpqTO1Xg6l" alt="Logo" width="140">
   </a>
 
 <!-- https://drive.google.com/file/d/19JkfDgvGLzHQ1AVMvgv9rLTFR0HzJBVq/view?usp=sharing -->
