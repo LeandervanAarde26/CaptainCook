@@ -115,14 +115,14 @@ https://developer.apple.com/xcode/
 
 ![image2](https://drive.google.com/uc?export=view&id=1JrKOl34AXmAOUkeYZ_hkI7sUGl52Et1u)
 
+### First time user? Use the onboarding screens.
+First time users get a brief overview of the applicaiton with the onboarding screens, showcasing each of the main functionallities in the application. Users that have opened the application will not see these views
+
 ### View all recipes that are available on the app, pulled from AWS! 
 You can view all the recipes and their previews on the app, all data that is sitting on an AWS S3 Bucket JSON file!
 
-### Answer questions through visual recognition
-Answer all questions through a visual hint above the question! Recognize your way to a highscore in each category.
-
-### Set and reset highscores
-Get and beat the highscore in each of the categories that are locally stored, also have the opportunity to reset the highscore on all categories whenever you want to! After quiz is finished, view all the right answers.
+### View Information about recipes in an individual recipe view
+Like what you see on the previews? Tap on the recipe to get more information about the recipe like ingredients, cooking instructions and cooking time! 
 
 ![image4](https://drive.google.com/uc?export=view&id=1tm55oe94wZxuD8tVqSA2FB50OdqiBrzk)
 
@@ -131,17 +131,18 @@ Get and beat the highscore in each of the categories that are locally stored, al
 <!-- here you will add things like wireframing, data structure planning, anything that shows your process. You need to include images-->
 ## Concept Process
 
-The `Conceptual Process` is the set of actions, activities and research that was done when starting this project. <br>
-The conceptual approach to creating this application was largely inspired by looking at other applications that were similiar, the success of the application would depend on identifying limitations that I had while pushing myself to create an application that is functional. During my process I had looked at different applications on the google playstore and other sources. The conceptual process has always proven to be difficult and an important step, especially considering that this would be my first application built using Kotlin. 
+The `Conceptual Process` is the set of actions, activities and research that was done when starting this project.
+<br>
+Before creating the Wireframes and designs for this project, I had gone through a conceptual process that included looking at other apps that were native to Ios, researching aspects such as the icons that should be used in this kind of application. I had used my inspiration to create a moodboard with application styles that I would want to use. During this process I had also started to consider how the application should be structured from a UX perspective. 
 <br> 
 
 ### Ideation
 
 ![image7](https://drive.google.com/uc?export=view&id=1WJyKYKGAXGVCdoBPDnqf5TtQSQmz_GGT)
 ### User Flow
-As part of my planning for this application, a user flow Diagram was created in order to identify the possible routes that the user could take throughout the application, considering that the application does not have many routes to explore, the Diagram was kept fairly simple. The user flow diagram played a large role in the planning phase and how my visuals would look
+As part of my planning phase I had created a userflow Diagram to plan out the user journey that could take place in the application. This part of the application planning was crucial in terms of planning layout and Hierarchy in the app. 
 ### Wireframes
-  Wireframing fell as part of my planning process, these wireframes would guide me in the right direction and would assist me in planning my content in order to ge the best possible outcan that I could possibly get for this project.
+  Wireframing fell as part of my planning process, these wireframes would guide me in the right direction and would assist me in planning my content in order to ge the best possible outcome that I could possibly get for this project. 
   
 
 ![image6](https://drive.google.com/uc?export=view&id=15k13_MjYLGMaCIvbtqgn0TgH2gHKviS3)
