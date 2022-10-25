@@ -20,6 +20,7 @@ struct SearchBar: View {
     var body: some View {
         HStack{
             TextField("Search...", text: $text)
+                .foregroundColor(.black)
                 .padding(7)
                 .padding(.horizontal, 25)
                 .background(Color(.systemGray6))
@@ -27,7 +28,7 @@ struct SearchBar: View {
                 .focused($FocusedField, equals: .SearchField)
                 .overlay(
                     HStack{
-                        Image(systemName: "Magnifyingglass")
+                        Image(systemName: "magnifyingglass")
                             .foregroundColor(.gray)
                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 8)
@@ -59,6 +60,7 @@ struct SearchBar: View {
                     }
                 }) {
                     Text("Cancel")
+                        .foregroundColor(.red)
                 }
                 .padding(.trailing, 10)
                 .transition(.move(edge:  .trailing))

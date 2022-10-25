@@ -10,6 +10,8 @@ struct ContentView: View {
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.orange]
       navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.orange]
     }
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \FavRecipe.name, ascending: true)])
+    private var FavoriteRecipes: FetchedResults<FavRecipe>
     
     @State var recipes: [recipes] = []
     var body: some View {
@@ -25,7 +27,7 @@ struct ContentView: View {
                     Preview(Emoji: "🍝", Extra: "\(model.allRecipes.count)", Text: "Total Recipes"){
                         MainView()
                     }
-                    Preview(Emoji: "⭐️", Extra: "\(model.allRecipes.filter({$0.Vegan == true }).count)", Text: "Favorite Recipes"){
+                    Preview(Emoji: "⭐️", Extra: "\(FavoriteRecipes.count)", Text: "Favorite Recipes"){
                         MainView()
                     }
                 }
@@ -49,6 +51,8 @@ struct ContentView: View {
                         }
                     }
                 }
+                .padding(.trailing, 2)
+                .padding(.leading, 2)
             }
             Spacer()
         }

@@ -18,8 +18,6 @@ struct AllRecipes: View {
     }
     
     var body: some View {
-        NavigationView(){
-            
             VStack(alignment: .leading, spacing: 0) {
                 Text("Recipes")
                     .font(.title)
@@ -52,35 +50,27 @@ struct AllRecipes: View {
                 }
                 
          
-                    ForEach(searchResults) { recipe in
+                ForEach(searchResults) { recipe in
+                    NavigationLink {
+                        IndividualRecipe(Recipe: recipe, comingFromInd: false)
+                    } label: {
                         CardView(rating: String(recipe.Rating), cookTime: recipe.TotalCookTime, vegan: recipe.Vegan, heading: recipe.Name, Image: recipe.Image){
                             MainView()
                         }
                     }
-                }
+                }                }
                 
                 Spacer()
                 }
 
             .padding()
-//            .navigationBarTitle("Recipes")
             .navigationBarBackButtonHidden(true)
-//            .foregroundColor(Color("Orange"))
-//            .navigationBarItems(trailing:
-//                Image("Logo")
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(width: 70, height:70)
-//                    .padding(.top, 75)
-//            )
             .onAppear(){
                 model.getData()
                 self.recipes = model.allRecipes
                 print(recipes)
 
             }
-            }
-        .frame(alignment: Alignment.top)
     }
 }
 

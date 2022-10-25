@@ -28,94 +28,83 @@ struct CardView <Content: View>: View{
     }
     
     var body: some View {
-//        RoundedRectangle(cornerRadius: 20)
-//             .overlay(
-//        NavigationLink(Individual(recipe: recipe))
+        HStack(alignment: .center){
+            AsyncImage(url: URL(string: PreviewPhoto)){ image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .frame(width: 100, height: 100)
+                    .padding(.trailing, 7)
+                    .clipped()
+                   
+                
+                
+            } placeholder: {
+                Image(systemName: "photo")
+            } //End of Image
+            
+            VStack(alignment: .leading){
+                Text(heading)
+                    .font(.system(size: 19, weight: .bold, design: .default))
+                    .foregroundColor(.black)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.bottom, 2)
+                    .padding(.top, 2)
+                
                 HStack{
-                    
-                    AsyncImage(url: URL(string: PreviewPhoto)){ image in
-                        image
-                            .resizable()
-                            .scaledToFill()
-                            .frame( minWidth: 60, maxWidth: 70, minHeight: 140, maxHeight: .infinity)
-                            .clipShape(RoundedRectangle(cornerRadius: 20))
-                    } placeholder: {
-                        Image(systemName: "photo")
-                    }
-                    .frame(width: 70, height: 50)
-                    
-                    VStack{
-                        
-                        Text(heading)
-                            .font(.system(size: 26))
+                    SwiftUI.Image(systemName: "star.fill")
+                        .foregroundColor(Color("Yellow"))
+                    Text("\(rating) stars")
+                        .font(.system(size: 16, weight: .medium, design: .default))
+                        .foregroundColor(.black)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.bottom, 0.5)
+                }
+                
+                HStack{
+                    SwiftUI.Image(systemName: "clock")
+                        .foregroundColor(.black)
+                    Text(cookTime)
+                        .font(.system(size: 16, weight: .medium, design: .default))
+                        .foregroundColor(.black)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.bottom, 0.5)
+                }
+                
+                HStack{
+                    if vegan{
+                        SwiftUI.Image(systemName: "leaf")
+                                .foregroundColor(.green)
+                        Text("Vegan Friendly")
+                            .font(.system(size: 16, weight: .medium, design: .default))
+                            .foregroundColor(.black)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.bottom, 0.5)
+                    } else{
+                        SwiftUI.Image(systemName: "x.circle")
+                            .foregroundColor(.red)
+                        Text("Not vegan Friendly")
+                            .font(.system(size: 16))
                             .fontWeight(.medium)
                             .foregroundColor(.black)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.bottom, 2)
-                            .padding(.top)
-                        
-                        HStack{
-                            SwiftUI.Image(systemName: "star.fill")
-                                .foregroundColor(Color("Yellow"))
-                            Text("\(rating) stars")
-                                .font(.system(size: 16))
-                                .fontWeight(.medium)
-                                .foregroundColor(.black)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.bottom, 0.5)
-                        }
-                        
-                        HStack{
-                            SwiftUI.Image(systemName: "clock")
-                                .foregroundColor(.black)
-                            Text(cookTime)
-                                .font(.system(size: 16))
-                                .fontWeight(.medium)
-                                .foregroundColor(.black)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.bottom, 0.5)
-                        }
-                        
-    
-                        HStack{
-                            if vegan {
-                                SwiftUI.Image(systemName: "leaf")
-                                    .foregroundColor(.black)
-                                Text("Vegan friendly")
-                                    .font(.system(size: 16))
-                                    .fontWeight(.medium)
-                                    .foregroundColor(.black)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                
-                            } else{
-                                SwiftUI.Image(systemName: "x.circle")
-                                    .foregroundColor(.red)
-                                Text("Not vegan Friendly")
-                                    .font(.system(size: 16))
-                                    .fontWeight(.medium)
-                                    .foregroundColor(.black)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                            }
-                        }
-                        .padding(.bottom)
-                                    
-                    }
-                }
-                .padding()
+                            .padding(.bottom, 0.5)
+                    } // End of ifelse
+                } // end of vegan Hstack
+                
+            } // End of inner VStack
+
+        }
+        .padding(.all, 5)
+        .frame(maxWidth: .infinity, alignment: .center)
+                .padding(.all, 10)//End of HStack main
                 .background(
                     RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(Color("Main"))
-                        .shadow(color: .black.opacity(0.2), radius: 4, x: 1, y: 2)
-                        .padding()
-                        .frame(minHeight: 180)
+                    .foregroundColor(Color("Main"))
+                    .shadow(color: .black.opacity(0.2), radius: 4, x: 1, y: 2)
+                    .frame(maxHeight: 150)
                 )
-                
-//             )
-//             .frame(maxWidth: .infinity)
-//             .foregroundColor(Color("Main"))
-//             .shadow(color: .black.opacity(0.2), radius: 4, x: 1, y: 2)
-//             .padding()
-        Spacer()
     }
 }
 
