@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct Settings: View {
+    
+//    @Environment(\.colorScheme) var colorScheme
+//    @State var currentColor: Int
+    
     var body: some View {
         NavigationView(){
             VStack(alignment: .leading, spacing: 0) {
@@ -36,7 +40,6 @@ struct Settings: View {
                     Text("SwiftUI")
                         .foregroundColor(.black)
                 }
-                
                 Spacer()
                     .frame(height: 10)
                 HStack{
@@ -62,13 +65,19 @@ struct Settings: View {
                         .foregroundColor(.black)
                 }
                 
-                Text("Available on all iOS devices")
-                    .foregroundColor(.black)
-                    .font(.headline)
-                    .padding(.top, 20)
-                
-                
-                                                    
+//                Text("Available on all iOS devices")
+//                    .foregroundColor(.black)
+//                    .font(.headline)
+//                    .padding(.top, 20)
+////
+//                Text(colorScheme == .dark ? "In dark mode" : "In light mode")
+//                    .foregroundColor(.red)
+
+//                Picker("Select Colour", selection: $currentColor){
+//                    Text("Light").tag(0)
+//                    Text("Dark").tag(1)
+//                }
+//                .pickerStyle(.segmented)
             }
             .padding()
             .navigationBarTitle("Settings")
@@ -80,7 +89,11 @@ struct Settings: View {
                 .frame(width: 100.0,height:100)
                 .padding(.top, 75)
             )
-        }
+            
+           }
+//            .onAppear{
+//            currentColor = colorScheme == .dark ? 2 : 1
+//        }
     }
 }
 

@@ -8,7 +8,8 @@ extension UIScreen{
 }
 
 struct SplashScreen: View {
-
+    @Environment(\.managedObjectContext) private var viewContext
+    
     @State var screenActive:Bool = false
     @State private var shouldAnimate = false
     @State var show = false
@@ -33,6 +34,7 @@ struct SplashScreen: View {
             if self.screenActive{
                 if hasOpened{
                     MainView()
+                        .environment(\.managedObjectContext, viewContext)
                 } else{
                     Onboarding()
                 }

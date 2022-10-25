@@ -9,6 +9,11 @@ import SwiftUI
 
 struct IndividualRecipe: View {
     let Recipe: recipes
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \FavRecipe.name, ascending: true)])
+    private var FavoriteRecipes: FetchedResults<FavRecipe>
+    @State var showAlert: Bool = false
+    @State var comingFromInd: Bool
     
     var body: some View {
         NavigationView(){
@@ -115,6 +120,48 @@ struct IndividualRecipe: View {
                                 }
                                 
                             }
+                            
+                            if !comingFromInd{
+                                Button{
+                                    
+                                    var exists = false
+                                    for r in FavoriteRecipes {
+                                        if Int(r.id) == Recipe.id{
+                                            exists = true
+                                            break
+                                        }
+                                    }
+                                    
+                                    if !exists{
+                                        let newFavorite = FavRecipe(context: viewContext)
+                                        newFavorite.id = Int64(Recipe.id)
+                                        newFavorite.author = Recipe.Author
+                                        newFavorite.categories = Recipe.Categories
+                                        newFavorite.cookingInstructions = Recipe.CookingInstructions
+                                        newFavorite.desc = Recipe.Description
+                                        newFavorite.favorite = true
+                                        newFavorite.image = Recipe.Image
+                                        newFavorite.ingredients = Recipe.Ingredients
+                                        newFavorite.name = Recipe.Name
+                                        newFavorite.rating = Int64(Recipe.Rating)
+                                        newFavorite.totalCookTime = Recipe.TotalCookTime
+                                        newFavorite.vegan = Recipe.Vegan
+                                        
+                                        do{
+                                            try viewContext.save()
+                                        }
+                                        catch{
+                                            let nsError = error as NSError
+                                            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                                        }
+                                    }else{
+                                        showAlert = true
+                                    }
+       
+                                } label:{
+                                    Text("Add to favs")
+                                }
+                            }
                         }
                         .padding(.top, 30)
                         .padding(.leading, 30)
@@ -195,9 +242,13 @@ struct IndividualRecipe: View {
                                 .foregroundColor(Color("Main"))
                                 .frame(minHeight: 320)
                         )
-                        
+  
                     }
                     .frame( maxHeight: .infinity, alignment: .leading)
+                }
+            
+                .alert( isPresented: $showAlert){
+                    Alert(title: Text("This is already in your favorites ⭐️"), dismissButton: .default(Text("Cool, thanks beans")))
                 }
             
                 .navigationBarBackButtonHidden(true)
@@ -210,7 +261,7 @@ struct IndividualRecipe: View {
                             .frame(width: 70, height:70)
                             .padding(.top, -150)
                         
-                    )
+                )
             }
         }
     }

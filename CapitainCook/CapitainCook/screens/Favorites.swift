@@ -8,42 +8,63 @@
 import SwiftUI
 
 struct Favorites: View {
-//    var test: recipes = recipes(id: 1, name: "Food Pizza", Decscription: <#T##String#>, Image: <#T##String#>, Rating: <#T##Double#>)
+    @Environment(\.managedObjectContext) private var viewContext
+        
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \FavRecipe.name, ascending: true)])
+    private var FavoriteRecipes: FetchedResults<FavRecipe>
+    
+    
     var body: some View {
         NavigationView(){
             VStack(alignment: .leading, spacing: 0) {
                 
-                Text("All my favorites")
-                    .font(.system(size: 24))
-                    .padding(.top, 20)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color("Orange"))
-                
                 ScrollView{
-                    
-                    ForEach((1...10), id: \.self){ index in
-                        CardView(rating: "5", cookTime: "10 Minutes", vegan: true, heading: "Food Pizza",  Image: "TesterImage"){
-                            MainView()
-                        }
-                        .padding(.leading, 5)
-                        .padding(.trailing, 5)
+                    if FavoriteRecipes.count == 0{
+                        Text("You have no Favorites 😢")
+                    }
+                    ForEach(FavoriteRecipes){ recipe in
+                        
+                        NavigationLink {
+                            IndividualRecipe(Recipe: recipes(id: Int(recipe.id), Author: recipe.author ?? "//", Categories: recipe.categories ?? [] , CookingInstructions: recipe.cookingInstructions ?? [], Description: recipe.desc ?? "//", Favorite: recipe.favorite, Image: recipe.image ?? "//", Ingredients: recipe.ingredients ?? [], Name: recipe.name ?? "//", Rating: Int(recipe.rating), Vegan: recipe.vegan, TotalCookTime: recipe.totalCookTime ?? "//"), comingFromInd: true)
+                                .environment(\.managedObjectContext, viewContext)
+                        } label: {
+                            CardView(rating: String(recipe.rating), cookTime: recipe.totalCookTime ?? "//", vegan: recipe.vegan, heading: recipe.name ?? "//",  Image: recipe.image ?? "//"){
+                                MainView()
+                            }
+                            
                         }
                     }
-     
+                    Button(role: .destructive){
+                        for r in FavoriteRecipes{
+                            viewContext.delete(r)
+                        }
+                        
+                        do{
+                            try viewContext.save()
+                        }
+                        catch{
+                            let nsError = error as NSError
+                            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                        }
+                    } label: {
+                        Text("Clear data")
+                    }
                 }
                 .padding()
                 .navigationBarTitle("Favourites")
                 .navigationBarBackButtonHidden(true)
                 .foregroundColor(Color("Orange"))
                 .navigationBarItems(trailing:
-                    Image("Logo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 70, height:70)
-                        .padding(.top, 75)
+                                        Image("Logo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 70, height:70)
+                    .padding(.top, 75)
                 )
             }
-        .navigationBarBackButtonHidden(true)
+            .navigationBarBackButtonHidden(true)
+        }
+        
     }
 }
 

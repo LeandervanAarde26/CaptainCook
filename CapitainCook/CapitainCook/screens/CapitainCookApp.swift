@@ -18,6 +18,7 @@ import SwiftUI
 
 @main
 struct CapitainCookApp: App {
+    let persistanceController = PersistenceController.shared
     var model = viewModel()
     var body: some Scene {
         WindowGroup {
@@ -26,6 +27,7 @@ struct CapitainCookApp: App {
                     .environmentObject(model)
                     .navigationBarTitle("")
                     .navigationBarHidden(true)
+                    .environment(\.managedObjectContext, persistanceController.container.viewContext)
             }
         }
     }

@@ -19,16 +19,39 @@ struct AllRecipes: View {
     
     var body: some View {
         NavigationView(){
+            
             VStack(alignment: .leading, spacing: 0) {
+                Text("Recipes")
+                    .font(.title)
+                    .foregroundColor(Color("Orange"))
                 SearchBar( text: $searchText)
-                
+            ScrollView{
                 Text("Filter Recipes")
                     .font(.system(size: 24))
                     .padding(.top, 20)
                     .fontWeight(.bold)
                     .foregroundColor(Color("Orange"))
                 
-                ScrollView{
+                ScrollView(.horizontal){
+                    HStack{
+                        Preview(Emoji: "🥗", Extra: "12", Text:"Vegan"){
+                            MainView()
+                        }
+                        .onTapGesture {
+                            print("Tapped")
+                        }
+                        
+                        Preview(Emoji: "🥗", Extra: "12", Text:"Vegan"){
+                            MainView()
+                        }
+                        
+                        Preview(Emoji: "🥗", Extra: "12", Text:"FamilyMeals"){
+                            MainView()
+                        }
+                    }
+                }
+                
+         
                     ForEach(searchResults) { recipe in
                         CardView(rating: String(recipe.Rating), cookTime: recipe.TotalCookTime, vegan: recipe.Vegan, heading: recipe.Name, Image: recipe.Image){
                             MainView()
@@ -40,18 +63,17 @@ struct AllRecipes: View {
                 }
 
             .padding()
-            .navigationBarTitle("Recipes")
+//            .navigationBarTitle("Recipes")
             .navigationBarBackButtonHidden(true)
-            .foregroundColor(Color("Orange"))
-            .navigationBarItems(trailing:
-                Image("Logo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 70, height:70)
-                    .padding(.top, 75)
-            )
+//            .foregroundColor(Color("Orange"))
+//            .navigationBarItems(trailing:
+//                Image("Logo")
+//                    .resizable()
+//                    .scaledToFit()
+//                    .frame(width: 70, height:70)
+//                    .padding(.top, 75)
+//            )
             .onAppear(){
-                print("It worked bro")
                 model.getData()
                 self.recipes = model.allRecipes
                 print(recipes)
@@ -59,8 +81,6 @@ struct AllRecipes: View {
             }
             }
         .frame(alignment: Alignment.top)
-
-          
     }
 }
 

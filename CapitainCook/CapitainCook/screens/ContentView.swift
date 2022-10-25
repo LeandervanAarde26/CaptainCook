@@ -4,7 +4,7 @@ import Firebase
 
 struct ContentView: View {
     @ObservedObject var model = viewModel()
-    
+    @Environment(\.managedObjectContext) private var viewContext
     init() {
       let navBarAppearance = UINavigationBar.appearance()
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.orange]
@@ -14,8 +14,9 @@ struct ContentView: View {
     @State var recipes: [recipes] = []
     var body: some View {
         
-    NavigationView(){
+//    NavigationView(){
         VStack(alignment: .leading, spacing: 0) {
+
             ScrollView(.horizontal){
                 HStack{
                     Preview(Emoji: "🥗", Extra: "\(model.allRecipes.filter({$0.Vegan == true }).count)", Text: "Vegan Recipes"){
@@ -37,8 +38,11 @@ struct ContentView: View {
             ScrollView{
                 
                 VStack{
-                    ForEach(model.allRecipes.prefix(3)) { recipe in
-                        NavigationLink(destination: IndividualRecipe(Recipe: recipe)){
+                    ForEach(model.allRecipes.sorted{  $0.Rating > $1.Rating}.prefix(3)) { recipe in
+                        NavigationLink {
+                            IndividualRecipe(Recipe: recipe, comingFromInd: false)
+                                .environment(\.managedObjectContext, viewContext)
+                        } label: {
                             CardView(rating: String(recipe.Rating), cookTime: recipe.TotalCookTime, vegan: recipe.Vegan, heading: recipe.Name, Image: recipe.Image){
                                 MainView()
                             }
@@ -70,8 +74,7 @@ struct ContentView: View {
             self.recipes = model.allRecipes
             UserDefaults.standard.set(true, forKey: "hasOpened")
         }
-    }
-    .navigationBarBackButtonHidden(true)
+//    }
     }
 }
 
