@@ -13,26 +13,20 @@ struct Favorites: View {
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \FavRecipe.name, ascending: true)])
     private var FavoriteRecipes: FetchedResults<FavRecipe>
     
-//    private func deleteTask(at offsets: IndexSet){
-//        offsets.forEach{index in
-//            let recipe = FavoriteRecipes[index]
-//            viewContext.delete(recipe)
-//        }
-//    }
-//
-//    func removeFavorite(at offsets: IndexSet) {
-//        for item in offsets {
-//            let favorite = FavoriteRecipes[item]
-//            viewContext.delete(favorite)
-//            do{
-//                try viewContext.save()
-//            }catch{
-//                let nsError = error as NSError
-//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+//        private func deleteTask(at offsets: IndexSet){
+//            offsets.forEach{index in
+//                let recipe = FavoriteRecipes[index]
+//                viewContext.delete(recipe)
 //            }
 //        }
-//    }
     
+//        func removeFavorite(at offsets: IndexSet) {
+//            for item in offsets {
+//                let favorite = FavoriteRecipes[item]
+//
+//            }
+//        }
+//
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -56,7 +50,20 @@ struct Favorites: View {
                         }label: {
                             CardView(rating: String(recipe.rating), cookTime: recipe.totalCookTime ?? "//", vegan: recipe.vegan, heading: recipe.name ?? "//",  Image: recipe.image ?? "//"){MainView()}
                         }
-                        
+                        .contextMenu {
+                            Button(role: .destructive) {
+                                viewContext.delete(recipe)
+                                do{
+                                    try viewContext.save()
+                                }catch{
+                                    let nsError = error as NSError
+                                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                                }
+                            } label: {
+                                Label("Delete", systemImage: "trash")
+                                   
+                            }
+                        }
                     }
                     
                     Button(role: .destructive){

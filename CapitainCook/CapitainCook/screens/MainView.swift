@@ -28,6 +28,7 @@ struct MainView: View {
                         
                     }.tag(1)
                 
+                
                 Favorites()
                     .environment(\.managedObjectContext, viewContext)
                     .tabItem{
@@ -43,7 +44,6 @@ struct MainView: View {
                     }.tag(3)
                 
                 Settings()
-//                    .environment(\.colorScheme, colorScheme)
                     .tabItem{
                         Image(systemName: "gear")
                         Text("Settings")

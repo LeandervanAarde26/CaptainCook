@@ -4,7 +4,7 @@ import SwiftUI
 struct Onboarding: View {
     
 var onBoardingScreens: [onBoard] = onBoardingdata
-
+    @Environment(\.managedObjectContext) private var viewContext
     @State private var currentLocation = 0
     @State var showMain = false
     
@@ -38,7 +38,15 @@ var onBoardingScreens: [onBoard] = onBoardingdata
                             }
                         }
                     Spacer()
-                        NavigationLink(destination:  MainView(), isActive: $showMain) {
+//                        NavigationLink(destination:  MainView(), isActive: $showMain) {
+//                            Text("")
+//                        }
+                        
+                        NavigationLink(isActive: $showMain){
+                            MainView()
+                                .environment(\.managedObjectContext, viewContext)
+                      
+                        } label: {
                             Text("")
                         }
                         Button("Next") {

@@ -37,6 +37,7 @@ struct SplashScreen: View {
                         .environment(\.managedObjectContext, viewContext)
                 } else{
                     Onboarding()
+                        .environment(\.managedObjectContext, viewContext)
                 }
             } else{
                 ZStack{

@@ -3,26 +3,26 @@ import SwiftUI
 
 
 struct ContentView: View {
-//    @Environment(\.colorScheme) private var colorScheme: ColorScheme
-//    @State private var isDarkModeOn = false
-//    func setAppTheme(){
-//        isDarkModeOn = UserDefaultsUtils.shared.getDarkMode()
-//        changeDarkMode(state: isDarkModeOn)
-//
-//        if (colorScheme == .dark)
-//        {
-//            isDarkModeOn = true
-//        }
-//        else{
-//            isDarkModeOn = false
-//        }
-//        changeDarkMode(state: isDarkModeOn)
-//    }
-//
-//    func changeDarkMode(state: Bool){
-//        (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first!.overrideUserInterfaceStyle = state ? .dark : .light
-//        UserDefaultsUtils.shared.setDarkMode(enable: state)
-//    }
+    //    @Environment(\.colorScheme) private var colorScheme: ColorScheme
+    //    @State private var isDarkModeOn = false
+    //    func setAppTheme(){
+    //        isDarkModeOn = UserDefaultsUtils.shared.getDarkMode()
+    //        changeDarkMode(state: isDarkModeOn)
+    //
+    //        if (colorScheme == .dark)
+    //        {
+    //            isDarkModeOn = true
+    //        }
+    //        else{
+    //            isDarkModeOn = false
+    //        }
+    //        changeDarkMode(state: isDarkModeOn)
+    //    }
+    //
+    //    func changeDarkMode(state: Bool){
+    //        (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first!.overrideUserInterfaceStyle = state ? .dark : .light
+    //        UserDefaultsUtils.shared.setDarkMode(enable: state)
+    //    }
     
     @ObservedObject var model = viewModel()
     @Environment(\.managedObjectContext) private var viewContext
@@ -93,16 +93,15 @@ struct ContentView: View {
         }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .frame(height: 75)
-            .padding(.top, 20)
         )
-        
+        .navigationBarBackButtonHidden(true)
         .onAppear(){
             model.getData()
             self.recipes = model.allRecipes
-            UserDefaults.standard.set(false, forKey: "hasOpened")
-//            setAppTheme()
+            UserDefaults.standard.set(true, forKey: "hasOpened")
         }
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
