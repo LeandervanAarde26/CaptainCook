@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AllRecipes: View {
     @ObservedObject var model = viewModel()
-    @State var recipes: [recipes] = []
+    @State var Recipes: [recipes] = []
     
     @State private var searchText = ""
     var searchResults:[recipes] {
@@ -17,14 +17,18 @@ struct AllRecipes: View {
         model.allRecipes.filter{$0.Name.contains(searchText)}
     }
     
+    var FilterResults: [recipes] {
+        return model.allRecipes
+    }
     var body: some View {
-            VStack(alignment: .leading, spacing: 0) {
-                Text("Recipes")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color("Orange"))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                SearchBar( text: $searchText)
+        
+        VStack(alignment: .leading, spacing: 0) {
+            Text("Recipes")
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(Color("Orange"))
+                .frame(maxWidth: .infinity, alignment: .leading)
+            SearchBar( text: $searchText)
             ScrollView{
                 Text("Filter Recipes")
                     .font(.system(size: 24))
@@ -33,51 +37,34 @@ struct AllRecipes: View {
                     .foregroundColor(Color("Orange"))
                 
                 ScrollView(.horizontal){
-                    HStack{
-                        Preview(Emoji: "🥗", Extra: "12", Text:"Vegan"){
-                            MainView()
-                        }
-                        .onTapGesture {
-                            print("Tapped")
-                        }
-                        
-                        Preview(Emoji: "🥗", Extra: "12", Text:"Vegan"){
-                            MainView()
-                        }
-                        
-                        Preview(Emoji: "🥗", Extra: "12", Text:"FamilyMeals"){
-                            MainView()
+                    
+                    ForEach(searchResults) { recipe in
+                        NavigationLink {
+                            IndividualRecipe(Recipe: recipe, comingFromInd: false)
+                        } label: {
+                            CardView(rating: String(recipe.Rating), cookTime: recipe.TotalCookTime, vegan: recipe.Vegan, heading: recipe.Name, Image: recipe.Image){
+                                MainView()
+                            }
                         }
                     }
                 }
-                
-         
-                ForEach(searchResults) { recipe in
-                    NavigationLink {
-                        IndividualRecipe(Recipe: recipe, comingFromInd: false)
-                    } label: {
-                        CardView(rating: String(recipe.Rating), cookTime: recipe.TotalCookTime, vegan: recipe.Vegan, heading: recipe.Name, Image: recipe.Image){
-                            MainView()
-                        }
-                    }
-                }                }
                 
                 Spacer()
-                }
-
+            }
+            
             .padding()
             .navigationBarBackButtonHidden(true)
             .onAppear(){
                 model.getData()
-                self.recipes = model.allRecipes
-                print(recipes)
-
+                self.Recipes = model.allRecipes
+                print(Recipes)
             }
+        }
     }
 }
-
-struct AllRecipes_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
+    
+    struct AllRecipes_Previews: PreviewProvider {
+        static var previews: some View {
+            MainView()
+        }
     }
-}

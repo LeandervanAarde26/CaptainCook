@@ -3,27 +3,7 @@ import SwiftUI
 
 
 struct ContentView: View {
-    //    @Environment(\.colorScheme) private var colorScheme: ColorScheme
-    //    @State private var isDarkModeOn = false
-    //    func setAppTheme(){
-    //        isDarkModeOn = UserDefaultsUtils.shared.getDarkMode()
-    //        changeDarkMode(state: isDarkModeOn)
-    //
-    //        if (colorScheme == .dark)
-    //        {
-    //            isDarkModeOn = true
-    //        }
-    //        else{
-    //            isDarkModeOn = false
-    //        }
-    //        changeDarkMode(state: isDarkModeOn)
-    //    }
-    //
-    //    func changeDarkMode(state: Bool){
-    //        (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first!.overrideUserInterfaceStyle = state ? .dark : .light
-    //        UserDefaultsUtils.shared.setDarkMode(enable: state)
-    //    }
-    
+    @Environment(\.colorScheme) private var colorScheme: ColorScheme
     @ObservedObject var model = viewModel()
     @Environment(\.managedObjectContext) private var viewContext
     init() {
@@ -84,8 +64,15 @@ struct ContentView: View {
         .navigationBarBackButtonHidden(true)
         .foregroundColor(Color("Orange"))
         .navigationBarItems(trailing:
-                                HStack{
+            HStack{
+            colorScheme == .light
+            ?
             Image("Logo")
+                .resizable()
+                .scaledToFit()
+                .frame(minWidth: 75, minHeight:75)
+            :
+            Image("WhiteLogo")
                 .resizable()
                 .scaledToFit()
                 .frame(minWidth: 75, minHeight:75)

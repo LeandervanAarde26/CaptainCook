@@ -23,6 +23,7 @@ extension Theme{
 }
 
 struct Settings: View {
+    @Environment(\.openURL) var openURL
     @Environment(\.colorScheme) private var colorScheme: ColorScheme
     @State private var isDarkModeOn = false
     @State private var selectedColor: Theme = .light
@@ -62,32 +63,35 @@ struct Settings: View {
     var body: some View {
         
         NavigationView {
-            VStack(alignment: .leading, spacing: 0) {
-                
+            VStack(alignment: .leading){
                 Text("Settings")
-                    .font(.title)
+                    .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(Color("Orange"))
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
-                Text("👨🏼‍💻 The Developer")
-                    .font(.largeTitle)
+                Spacer()
+                    .frame(height: 20)
+                Text("About the Developer 🧑‍💻")
+                    .font(.title2)
                     .fontWeight(.bold)
+                    .foregroundColor(Color("Orange"))
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.bottom, 10)
-                    .foregroundColor(.black)
-                Text("Designed and Developed by Leander van Aarde 2022")
-                    .padding(.bottom, 10)
-                    .foregroundColor(.black)
-                
-                Text("Technologies")
-                    .font(.headline)
-                    .fontWeight(.bold)
-                    .foregroundColor(.black)
                 
                 Spacer()
                     .frame(height: 10)
+                Text("Designed and Developed by Leander van Aarde 2022")
+                    .padding(.bottom, 10)
+                    .foregroundColor(Color("Text"))
                 
+                Spacer()
+                    .frame(height: 20)
+                
+                Text("Technologies used")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color("Orange"))
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 
                 ForEach(settingsInformation) { information in
                     HStack{
@@ -98,21 +102,39 @@ struct Settings: View {
                         Spacer()
                             .frame(width: 30)
                         Text(information.Texts)
-                            .foregroundColor(.black)
+                            .foregroundColor(Color("Text"))
+                            .fontWeight(.medium)
                     }
                     Spacer()
                         .frame(height: 10)
                 }
                 
+                VStack{
+                    Spacer()
+                        .frame(height: 20)
+                    Text("Switch theme").foregroundColor(Color("Text")).padding(10)
+                    ToggleThemeView
+                    
+                    Spacer()
+                        .frame(height: 20)
+                    
+                    Button("View Github") {
+                        openURL(URL(string: "https://www.apple.com")!)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .frame( height: 50)
+                    .foregroundColor(Color("White"))
+                    .buttonStyle(.plain)
+                    .frame(maxWidth: 150, maxHeight: 40)
+                    .background( Color("Yellow"))
+                    .foregroundColor(Color("White"))
+                    .clipShape(Capsule())
+                    .padding(20)
+                }
                 Spacer()
-                    .frame(height: 10)
                 
-                
-                Text("Switch theme").foregroundColor(Color("Text")).padding(10)
-                ToggleThemeView
             }
             .padding()
-            .navigationBarBackButtonHidden(true)
         }
         .background(Color("BackgroundColor"))
         .navigationViewStyle(StackNavigationViewStyle())
