@@ -20,7 +20,7 @@ struct SearchBar: View {
     var body: some View {
         HStack{
             TextField("Search...", text: $text)
-                .foregroundColor(.black)
+                .foregroundColor(Color("Text"))
                 .padding(7)
                 .padding(.horizontal, 25)
                 .background(Color(.systemGray6))
@@ -54,7 +54,7 @@ struct SearchBar: View {
                     switch FocusedField {
                     case .SearchField:
                         FocusedField = nil
-            
+                        
                     case .none:
                         FocusedField = nil
                     }

@@ -2,9 +2,9 @@ import SwiftUI
 import SpriteKit
 
 extension UIScreen{
-   static let screenWidth = UIScreen.main.bounds.size.width
-   static let screenHeight = UIScreen.main.bounds.size.height
-   static let screenSize = UIScreen.main.bounds.size
+    static let screenWidth = UIScreen.main.bounds.size.width
+    static let screenHeight = UIScreen.main.bounds.size.height
+    static let screenSize = UIScreen.main.bounds.size
 }
 
 struct SplashScreen: View {
@@ -42,16 +42,16 @@ struct SplashScreen: View {
                 ZStack{
                     
                     currentColor.ignoresSafeArea(.all)
-                    .ignoresSafeArea(.all)
+                        .ignoresSafeArea(.all)
                     
                     SpriteView(scene: RainFall(), options: [.allowsTransparency])
-                
-                        Image(currentImage)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width:300,height:300)
-                            .position(x: UIScreen.main.bounds.width / 2 , y: UIScreen.main.bounds.height / 2.6 )
-
+                    
+                    Image(currentImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width:300,height:300)
+                        .position(x: UIScreen.main.bounds.width / 2 , y: UIScreen.main.bounds.height / 2.6 )
+                    
                     if showProgress {
                         Image(textImage)
                             .resizable()
@@ -94,7 +94,7 @@ struct SplashScreen: View {
 struct SplashScreen_Previews: PreviewProvider {
     static var previews: some View {
         SplashScreen()
-
+        
     }
 }
 

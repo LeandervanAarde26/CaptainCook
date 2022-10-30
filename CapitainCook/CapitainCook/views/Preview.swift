@@ -31,12 +31,12 @@ struct Preview <Content: View>: View {
             SwiftUI.Text(Extra)
                 .font(.system(size: 24))
                 .fontWeight(.bold)
-                .foregroundColor(.black)
+                .foregroundColor(Color("Text"))
     
             SwiftUI.Text(Text)
                 .font(.system(size: 18))
                 .fontWeight(.medium)
-                .foregroundColor(.black)
+                .foregroundColor(Color("Text"))
                 .padding(.bottom, 30)
         }
         .padding()

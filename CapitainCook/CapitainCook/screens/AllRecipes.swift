@@ -21,7 +21,9 @@ struct AllRecipes: View {
             VStack(alignment: .leading, spacing: 0) {
                 Text("Recipes")
                     .font(.title)
+                    .fontWeight(.bold)
                     .foregroundColor(Color("Orange"))
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 SearchBar( text: $searchText)
             ScrollView{
                 Text("Filter Recipes")

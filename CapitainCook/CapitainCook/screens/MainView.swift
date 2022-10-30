@@ -14,6 +14,10 @@ struct MainView: View {
             fatalError("Oh no bro")
         }
     }
+    
+    @Environment(\.colorScheme) private var colorScheme: ColorScheme
+    @State private var isDarkModeOn = false
+
 
     var body: some View {
         NavigationView{
@@ -40,6 +44,7 @@ struct MainView: View {
                     }.tag(3)
                 
                 Settings()
+                    .environment(\.colorScheme, colorScheme)
                     .tabItem{
                         Image(systemName: "gear")
                         Text("Settings")

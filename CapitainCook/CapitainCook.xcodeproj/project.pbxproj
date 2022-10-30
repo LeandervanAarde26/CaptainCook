@@ -13,6 +13,11 @@
 		6E2FC16728E1CA1000032602 /* AllRecipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2FC16628E1CA1000032602 /* AllRecipes.swift */; };
 		6E2FC16928E1CA5D00032602 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2FC16828E1CA5D00032602 /* Favorites.swift */; };
 		6E2FC16B28E1CA9800032602 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2FC16A28E1CA9800032602 /* Settings.swift */; };
+		6E544242290EB62A0022EBD3 /* Colour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E544241290EB62A0022EBD3 /* Colour.swift */; };
+		6E544245290EB8640022EBD3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E544244290EB8640022EBD3 /* Constants.swift */; };
+		6E544247290EB8780022EBD3 /* UserDefaultsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E544246290EB8780022EBD3 /* UserDefaultsUtils.swift */; };
+		6E544249290ED3B10022EBD3 /* SettingsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E544248290ED3B10022EBD3 /* SettingsData.swift */; };
+		6E54424B290ED3D70022EBD3 /* setModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E54424A290ED3D70022EBD3 /* setModel.swift */; };
 		6E6A727628FA00FE004E8EA4 /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6A727528FA00FE004E8EA4 /* Preview.swift */; };
 		6E80603128EB3870003E7194 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E80603028EB3870003E7194 /* CardView.swift */; };
 		6E80603328EB5185003E7194 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E80603228EB5185003E7194 /* SearchBar.swift */; };
@@ -52,6 +57,11 @@
 		6E2FC16628E1CA1000032602 /* AllRecipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllRecipes.swift; sourceTree = "<group>"; };
 		6E2FC16828E1CA5D00032602 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		6E2FC16A28E1CA9800032602 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		6E544241290EB62A0022EBD3 /* Colour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colour.swift; sourceTree = "<group>"; };
+		6E544244290EB8640022EBD3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6E544246290EB8780022EBD3 /* UserDefaultsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtils.swift; sourceTree = "<group>"; };
+		6E544248290ED3B10022EBD3 /* SettingsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsData.swift; sourceTree = "<group>"; };
+		6E54424A290ED3D70022EBD3 /* setModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setModel.swift; sourceTree = "<group>"; };
 		6E6A727528FA00FE004E8EA4 /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
 		6E80603028EB3870003E7194 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		6E80603228EB5185003E7194 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -97,12 +107,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E544240290EB6130022EBD3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6E544241290EB62A0022EBD3 /* Colour.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6E544243290EB84F0022EBD3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				6E544244290EB8640022EBD3 /* Constants.swift */,
+				6E544246290EB8780022EBD3 /* UserDefaultsUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		6E98DFE828E5A60400DDE33D /* models */ = {
 			isa = PBXGroup;
 			children = (
 				6E80603428EB8DF3003E7194 /* Recipe.swift */,
 				6E03318C2903E4E6009F42F2 /* OnBoarding.swift */,
 				6EB4283D2908260700AD66A1 /* Favorite.xcdatamodeld */,
+				6E54424A290ED3D70022EBD3 /* setModel.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -139,6 +167,7 @@
 				6E80603628EC27F0003E7194 /* viewModel.swift */,
 				6E0331902903E5DE009F42F2 /* OnBoardingData.swift */,
 				6EB4285F290827AB00AD66A1 /* persistance.swift */,
+				6E544248290ED3B10022EBD3 /* SettingsData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -162,6 +191,8 @@
 		6EFDEDBB28DA370600B65176 /* CapitainCook */ = {
 			isa = PBXGroup;
 			children = (
+				6E544243290EB84F0022EBD3 /* Utils */,
+				6E544240290EB6130022EBD3 /* Extensions */,
 				6EA4B68E28EC4C3900D07A6C /* CapitainCook.entitlements */,
 				6E98DFEB28E5A62D00DDE33D /* Data */,
 				6E98DFEA28E5A62700DDE33D /* views */,
@@ -276,11 +307,13 @@
 			files = (
 				6EFDEDCB28DA388700B65176 /* SplashScreen.swift in Sources */,
 				6E80603128EB3870003E7194 /* CardView.swift in Sources */,
+				6E544249290ED3B10022EBD3 /* SettingsData.swift in Sources */,
 				6E2FC16528E1C79E00032602 /* MainView.swift in Sources */,
 				6EB42860290827AB00AD66A1 /* persistance.swift in Sources */,
 				6EFDEDBF28DA370600B65176 /* ContentView.swift in Sources */,
 				6E03318D2903E4E6009F42F2 /* OnBoarding.swift in Sources */,
 				6E6A727628FA00FE004E8EA4 /* Preview.swift in Sources */,
+				6E54424B290ED3D70022EBD3 /* setModel.swift in Sources */,
 				6EB4283F2908260700AD66A1 /* Favorite.xcdatamodeld in Sources */,
 				6EB09FE928F9AFBB0023D14F /* IndividualRecipe.swift in Sources */,
 				6E2FC16728E1CA1000032602 /* AllRecipes.swift in Sources */,
@@ -288,6 +321,9 @@
 				6E2FC16B28E1CA9800032602 /* Settings.swift in Sources */,
 				6E80603328EB5185003E7194 /* SearchBar.swift in Sources */,
 				6EFDEDCD28DA601700B65176 /* Onboarding.swift in Sources */,
+				6E544247290EB8780022EBD3 /* UserDefaultsUtils.swift in Sources */,
+				6E544242290EB62A0022EBD3 /* Colour.swift in Sources */,
+				6E544245290EB8640022EBD3 /* Constants.swift in Sources */,
 				6E0331912903E5DE009F42F2 /* OnBoardingData.swift in Sources */,
 				6EFDEDBD28DA370600B65176 /* CapitainCookApp.swift in Sources */,
 				6E80603728EC27F0003E7194 /* viewModel.swift in Sources */,

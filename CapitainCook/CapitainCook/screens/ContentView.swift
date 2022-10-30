@@ -3,22 +3,45 @@ import SwiftUI
 import Firebase
 
 struct ContentView: View {
+//    @Environment(\.colorScheme) private var colorScheme: ColorScheme
+//    @State private var isDarkModeOn = false
+//    func setAppTheme(){
+//        isDarkModeOn = UserDefaultsUtils.shared.getDarkMode()
+//        changeDarkMode(state: isDarkModeOn)
+//
+//        if (colorScheme == .dark)
+//        {
+//            isDarkModeOn = true
+//        }
+//        else{
+//            isDarkModeOn = false
+//        }
+//        changeDarkMode(state: isDarkModeOn)
+//    }
+//
+//    func changeDarkMode(state: Bool){
+//        (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first!.overrideUserInterfaceStyle = state ? .dark : .light
+//        UserDefaultsUtils.shared.setDarkMode(enable: state)
+//    }
+    
     @ObservedObject var model = viewModel()
     @Environment(\.managedObjectContext) private var viewContext
     init() {
-      let navBarAppearance = UINavigationBar.appearance()
+        let navBarAppearance = UINavigationBar.appearance()
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.orange]
-      navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.orange]
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.orange]
     }
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \FavRecipe.name, ascending: true)])
     private var FavoriteRecipes: FetchedResults<FavRecipe>
     
     @State var recipes: [recipes] = []
     var body: some View {
-        
-//    NavigationView(){
         VStack(alignment: .leading, spacing: 0) {
-
+            Text("Home")
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(Color("Orange"))
+            
             ScrollView(.horizontal){
                 HStack{
                     Preview(Emoji: "🥗", Extra: "\(model.allRecipes.filter({$0.Vegan == true }).count)", Text: "Vegan Recipes"){
@@ -36,7 +59,7 @@ struct ContentView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(.system(size: 24))
                 .fontWeight(.bold)
-                .foregroundColor(.black)
+                .foregroundColor(Color("Text"))
             ScrollView{
                 
                 VStack{
@@ -60,25 +83,25 @@ struct ContentView: View {
         .navigationBarTitle("Home")
         .navigationBarBackButtonHidden(true)
         .foregroundColor(Color("Orange"))
-
         .navigationBarItems(trailing:
-            VStack{
+                                HStack{
             Image("Logo")
                 .resizable()
                 .scaledToFit()
                 .frame(minWidth: 75, minHeight:75)
-
-            }
+            
+        }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .frame(height: 75)
+            .padding(.top, 20)
         )
-  
+        
         .onAppear(){
             model.getData()
             self.recipes = model.allRecipes
-            UserDefaults.standard.set(true, forKey: "hasOpened")
+            UserDefaults.standard.set(false, forKey: "hasOpened")
+//            setAppTheme()
         }
-//    }
     }
 }
 

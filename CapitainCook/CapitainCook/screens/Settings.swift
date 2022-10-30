@@ -6,15 +6,70 @@
 //
 
 import SwiftUI
+enum Theme: String, CaseIterable, Identifiable{
+    case dark, light
+    var id: Self { self }
+}
+
+extension Theme{
+    var theme: Bool{
+        switch self{
+        case .light:
+            return false
+        case .dark:
+            return true
+        }
+    }
+}
 
 struct Settings: View {
+    @Environment(\.colorScheme) private var colorScheme: ColorScheme
+    @State private var isDarkModeOn = false
+    @State private var selectedColor: Theme = .light
+    var settingsInformation: [settingModel] = settingsDat
     
-//    @Environment(\.colorScheme) var colorScheme
-//    @State var currentColor: Int
+    func setAppTheme(){
+        isDarkModeOn = UserDefaultsUtils.shared.getDarkMode()
+        changeDarkMode(state: isDarkModeOn)
+        
+        if (selectedColor == .dark || colorScheme == .dark)
+        {
+            selectedColor = .dark
+        }
+        else{
+            
+            selectedColor = .light
+        }
+        changeDarkMode(state: selectedColor.theme)
+    }
+    
+    func changeDarkMode(state: Bool){
+        (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first!.overrideUserInterfaceStyle = state ? .dark : .light
+        UserDefaultsUtils.shared.setDarkMode(enable: state)
+    }
+    
+    var ToggleThemeView: some View {
+        Picker("Theme", selection: $selectedColor){
+            Text("Dark Mode").tag(Theme.dark)
+            Text("Light Mode").tag(Theme.light)
+        }
+        .pickerStyle(.segmented)
+        .onChange(of: selectedColor.theme){ (state) in
+            changeDarkMode(state: state)
+        }
+    }
     
     var body: some View {
-        NavigationView(){
+        
+        NavigationView {
             VStack(alignment: .leading, spacing: 0) {
+                
+                Text("Settings")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color("Orange"))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
                 Text("👨🏼‍💻 The Developer")
                     .font(.largeTitle)
                     .fontWeight(.bold)
@@ -24,7 +79,7 @@ struct Settings: View {
                 Text("Designed and Developed by Leander van Aarde 2022")
                     .padding(.bottom, 10)
                     .foregroundColor(.black)
-                    
+                
                 Text("Technologies")
                     .font(.headline)
                     .fontWeight(.bold)
@@ -33,67 +88,37 @@ struct Settings: View {
                 Spacer()
                     .frame(height: 10)
                 
-                HStack{
-                    Image("SwiftUI")
+                
+                ForEach(settingsInformation) { information in
+                    HStack{
+                        Image(information.Image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxWidth: 50, maxHeight: 40)
+                        Spacer()
+                            .frame(width: 30)
+                        Text(information.Texts)
+                            .foregroundColor(.black)
+                    }
                     Spacer()
-                        .frame(width: 30)
-                    Text("SwiftUI")
-                        .foregroundColor(.black)
+                        .frame(height: 10)
                 }
+                
                 Spacer()
                     .frame(height: 10)
-                HStack{
-                    Image("Xcode")
-                    Spacer()
-                        .frame(width: 30)
-                    Text("Xcode")
-                        .foregroundColor(.black)
-                }
                 
-                Spacer()
-                    .frame(height: 10)
                 
-                HStack{
-                    Image("AWS")
-                        .resizable()
-                        .frame(maxWidth: 30, maxHeight: 40)
-                    
-                    Spacer()
-                        .frame(width: 30)
-                    
-                    Text("AWS S3 buckets")
-                        .foregroundColor(.black)
-                }
-                
-//                Text("Available on all iOS devices")
-//                    .foregroundColor(.black)
-//                    .font(.headline)
-//                    .padding(.top, 20)
-////
-//                Text(colorScheme == .dark ? "In dark mode" : "In light mode")
-//                    .foregroundColor(.red)
-
-//                Picker("Select Colour", selection: $currentColor){
-//                    Text("Light").tag(0)
-//                    Text("Dark").tag(1)
-//                }
-//                .pickerStyle(.segmented)
+                Text("Switch theme").foregroundColor(Color("Text")).padding(10)
+                ToggleThemeView
             }
             .padding()
-            .navigationBarTitle("Settings")
             .navigationBarBackButtonHidden(true)
-            .navigationBarItems(trailing:
-                                    Image("Logo")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 100.0,height:100)
-                .padding(.top, 75)
-            )
-            
-           }
-//            .onAppear{
-//            currentColor = colorScheme == .dark ? 2 : 1
-//        }
+        }
+        .background(Color("BackgroundColor"))
+        .navigationViewStyle(StackNavigationViewStyle())
+        .onAppear(perform: {
+            setAppTheme()
+        })
     }
 }
 

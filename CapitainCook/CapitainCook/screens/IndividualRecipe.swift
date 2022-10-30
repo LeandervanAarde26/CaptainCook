@@ -42,22 +42,14 @@ struct IndividualRecipe: View {
                             Image(systemName: "photo")
                         }
                         
-                        
-//                        Image("TesterImage")
-//                            .resizable()
-//                            .scaledToFill()
-//                            .frame(maxWidth: .infinity, maxHeight: 250)
-//                            .clipped()
-//                            .ignoresSafeArea(.all)
-                        
                         VStack{
                             Text("\(Recipe.Name)")
-                                .foregroundColor(.black)
+                                .foregroundColor(Color("Text"))
                                 .font(.title3)
                                 .fontWeight(.bold)
                             
                             Text("\(Recipe.Description) ")
-                                .foregroundColor(.black)
+                                .foregroundColor(Color("Text"))
                                 .font(.custom("px", size: 16))
                             //                        .padding(.trailing, 25)
                             //                        .padding(.leading, 25)
@@ -71,7 +63,7 @@ struct IndividualRecipe: View {
                                 Text("\(Recipe.Rating) stars")
                                     .font(.system(size: 16))
                                     .fontWeight(.medium)
-                                    .foregroundColor(.black)
+                                    .foregroundColor(Color("Text"))
                                 
                                     .padding(.bottom, 5)
                                 
@@ -82,7 +74,7 @@ struct IndividualRecipe: View {
                                 Text("\(Recipe.TotalCookTime)")
                                     .font(.system(size: 16))
                                     .fontWeight(.medium)
-                                    .foregroundColor(.black)
+                                    .foregroundColor(Color("Text"))
                                 
                                     .padding(.bottom, 5)
                             }
@@ -93,7 +85,7 @@ struct IndividualRecipe: View {
                                 Text("\(Recipe.Ingredients.count) ingredients")
                                     .font(.system(size: 16))
                                     .fontWeight(.medium)
-                                    .foregroundColor(.black)
+                                    .foregroundColor(Color("Text"))
                                 
                                     .padding(.bottom, 0.5)
                                 
@@ -105,7 +97,7 @@ struct IndividualRecipe: View {
                                     Text("Vegan Recipe")
                                         .font(.system(size: 16))
                                         .fontWeight(.medium)
-                                        .foregroundColor(.black)
+                                        .foregroundColor(Color("Text"))
                                     
                                         .padding(.bottom, 0.5)
                                 } else{
@@ -114,54 +106,14 @@ struct IndividualRecipe: View {
                                     Text("Non-Vegan Recipe")
                                         .font(.system(size: 16))
                                         .fontWeight(.medium)
-                                        .foregroundColor(.black)
+                                        .foregroundColor(Color("Text"))
                                     
                                         .padding(.bottom, 0.5)
                                 }
                                 
                             }
                             
-                            if !comingFromInd{
-                                Button{
-                                    
-                                    var exists = false
-                                    for r in FavoriteRecipes {
-                                        if Int(r.id) == Recipe.id{
-                                            exists = true
-                                            break
-                                        }
-                                    }
-                                    
-                                    if !exists{
-                                        let newFavorite = FavRecipe(context: viewContext)
-                                        newFavorite.id = Int64(Recipe.id)
-                                        newFavorite.author = Recipe.Author
-                                        newFavorite.categories = Recipe.Categories
-                                        newFavorite.cookingInstructions = Recipe.CookingInstructions
-                                        newFavorite.desc = Recipe.Description
-                                        newFavorite.favorite = true
-                                        newFavorite.image = Recipe.Image
-                                        newFavorite.ingredients = Recipe.Ingredients
-                                        newFavorite.name = Recipe.Name
-                                        newFavorite.rating = Int64(Recipe.Rating)
-                                        newFavorite.totalCookTime = Recipe.TotalCookTime
-                                        newFavorite.vegan = Recipe.Vegan
-                                        
-                                        do{
-                                            try viewContext.save()
-                                        }
-                                        catch{
-                                            let nsError = error as NSError
-                                            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-                                        }
-                                    }else{
-                                        showAlert = true
-                                    }
-       
-                                } label:{
-                                    Text("Add to favs")
-                                }
-                            }
+
                         }
                         .padding(.top, 30)
                         .padding(.leading, 30)
@@ -179,10 +131,58 @@ struct IndividualRecipe: View {
                     .frame(maxHeight: .infinity, alignment: .top)
                     
                     VStack{
+                        if !comingFromInd{
+                            Button("Add to Favorites 🍴"){
+                                
+                                var exists = false
+                                for r in FavoriteRecipes {
+                                    if Int(r.id) == Recipe.id{
+                                        exists = true
+                                        break
+                                    }
+                                }
+                                
+                                if !exists{
+                                    let newFavorite = FavRecipe(context: viewContext)
+                                    newFavorite.id = Int64(Recipe.id)
+                                    newFavorite.author = Recipe.Author
+                                    newFavorite.categories = Recipe.Categories
+                                    newFavorite.cookingInstructions = Recipe.CookingInstructions
+                                    newFavorite.desc = Recipe.Description
+                                    newFavorite.favorite = true
+                                    newFavorite.image = Recipe.Image
+                                    newFavorite.ingredients = Recipe.Ingredients
+                                    newFavorite.name = Recipe.Name
+                                    newFavorite.rating = Int64(Recipe.Rating)
+                                    newFavorite.totalCookTime = Recipe.TotalCookTime
+                                    newFavorite.vegan = Recipe.Vegan
+                                    
+                                    do{
+                                        try viewContext.save()
+                                    }
+                                    catch{
+                                        let nsError = error as NSError
+                                        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+                                    }
+                                }else{
+                                    showAlert = true
+                                }
+   
+                            }
+                            .frame(maxWidth: .infinity)
+                            .foregroundColor(Color("White"))
+                            .buttonStyle(.plain)
+                            .frame(maxWidth: 150, maxHeight: 40)
+                            .background( Color("Yellow"))
+                            .foregroundColor(Color("White"))
+                            .clipShape(Capsule())
+                        }
+
+
                         ScrollView{
                             
                             Text("Ingredients")
-                                .foregroundColor(.black)
+                                .foregroundColor(Color("Text"))
                                 .font(.title)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .fontWeight(.bold)
@@ -193,13 +193,13 @@ struct IndividualRecipe: View {
                                 HStack{
                                     Circle()
                                         .frame(width: 7, height: 7)
-                                        .foregroundColor(.black)
+                                        .foregroundColor(Color("Text"))
                                         .frame(alignment: .leading)
                                     
                                     Spacer()
                                     
                                     Text("\(Recipe.Ingredients[value])")
-                                            .foregroundColor(.black)
+                                            .foregroundColor(Color("Text"))
                                             .frame(maxWidth: .infinity, alignment: .leading)
                                             .fontWeight(.medium)
                                         Divider()
@@ -207,7 +207,7 @@ struct IndividualRecipe: View {
                                 }
                             
                             Text("Cooking Instructions")
-                                .foregroundColor(.black)
+                                .foregroundColor(Color("Text"))
                                 .font(.title)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .fontWeight(.bold)
@@ -218,12 +218,12 @@ struct IndividualRecipe: View {
                        
                        HStack{
                            Text("\(value+1).")
-                               .foregroundColor(.black)
+                               .foregroundColor(Color("Text"))
                                .fontWeight(.bold)
                                .frame(maxHeight: .infinity, alignment: .top)
                            
                            Text(" \( Recipe.CookingInstructions[value])")
-                                   .foregroundColor(.black)
+                                   .foregroundColor(Color("Text"))
                                    .frame(maxWidth: .infinity, alignment: .leading)
                                    .fontWeight(.medium)
                                    .padding(.leading, 6)
@@ -235,13 +235,13 @@ struct IndividualRecipe: View {
                             
                         }
                         .padding(.leading, 20)
-                        .frame(minHeight: 300, maxHeight: 540)
+                        .frame(minHeight: 360, maxHeight: 580)
                         .padding(.bottom, 20)
-                        .background(
-                            RoundedRectangle(cornerRadius: 20)
-                                .foregroundColor(Color("Main"))
-                                .frame(minHeight: 320)
-                        )
+//                        .background(
+//                            RoundedRectangle(cornerRadius: 20)
+//                                .foregroundColor(.black)
+//                                .frame(minHeight: 420)
+//                        )
   
                     }
                     .frame( maxHeight: .infinity, alignment: .leading)

@@ -47,7 +47,7 @@ struct CardView <Content: View>: View{
             VStack(alignment: .leading){
                 Text(heading)
                     .font(.system(size: 19, weight: .bold, design: .default))
-                    .foregroundColor(.black)
+                    .foregroundColor(Color("Text"))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom, 2)
                     .padding(.top, 2)
@@ -57,17 +57,17 @@ struct CardView <Content: View>: View{
                         .foregroundColor(Color("Yellow"))
                     Text("\(rating) stars")
                         .font(.system(size: 16, weight: .medium, design: .default))
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("Text"))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.bottom, 0.5)
                 }
                 
                 HStack{
                     SwiftUI.Image(systemName: "clock")
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("Text"))
                     Text(cookTime)
                         .font(.system(size: 16, weight: .medium, design: .default))
-                        .foregroundColor(.black)
+                        .foregroundColor(Color("Text"))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.bottom, 0.5)
                 }
@@ -78,7 +78,7 @@ struct CardView <Content: View>: View{
                                 .foregroundColor(.green)
                         Text("Vegan Friendly")
                             .font(.system(size: 16, weight: .medium, design: .default))
-                            .foregroundColor(.black)
+                            .foregroundColor(Color("Text"))
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.bottom, 0.5)
                     } else{
@@ -87,7 +87,7 @@ struct CardView <Content: View>: View{
                         Text("Not vegan Friendly")
                             .font(.system(size: 16))
                             .fontWeight(.medium)
-                            .foregroundColor(.black)
+                            .foregroundColor(Color("Text"))
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.bottom, 0.5)
                     } // End of ifelse
