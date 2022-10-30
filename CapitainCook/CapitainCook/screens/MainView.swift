@@ -3,8 +3,6 @@ import SwiftUI
 
 
 struct MainView: View {
-//    @Environment(\.colorScheme) var colorScheme
-//    @Binding var colorScheme: ColorScheme?
 @Environment(\.managedObjectContext) private var viewContext
     
     func saveContext(){
@@ -38,13 +36,14 @@ struct MainView: View {
                     }.tag(2)
                 
                 AllRecipes()
+                
                     .tabItem{
                         Image(systemName: "magnifyingglass")
                         Text("Search")
                     }.tag(3)
                 
                 Settings()
-                    .environment(\.colorScheme, colorScheme)
+//                    .environment(\.colorScheme, colorScheme)
                     .tabItem{
                         Image(systemName: "gear")
                         Text("Settings")

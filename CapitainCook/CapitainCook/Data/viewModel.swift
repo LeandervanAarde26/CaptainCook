@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Firebase
 
 class viewModel: ObservableObject{
     @Published var allRecipes: [recipes] = []

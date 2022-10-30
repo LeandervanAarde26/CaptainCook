@@ -113,7 +113,51 @@ struct IndividualRecipe: View {
                                 
                             }
                             
-
+                            if !comingFromInd{
+                                Button("Add to Favorites 🍴"){
+                                    
+                                    var exists = false
+                                    for r in FavoriteRecipes {
+                                        if Int(r.id) == Recipe.id{
+                                            exists = true
+                                            break
+                                        }
+                                    }
+                                    
+                                    if !exists{
+                                        let newFavorite = FavRecipe(context: viewContext)
+                                        newFavorite.id = Int64(Recipe.id)
+                                        newFavorite.author = Recipe.Author
+                                        newFavorite.categories = Recipe.Categories
+                                        newFavorite.cookingInstructions = Recipe.CookingInstructions
+                                        newFavorite.desc = Recipe.Description
+                                        newFavorite.favorite = true
+                                        newFavorite.image = Recipe.Image
+                                        newFavorite.ingredients = Recipe.Ingredients
+                                        newFavorite.name = Recipe.Name
+                                        newFavorite.rating = Int64(Recipe.Rating)
+                                        newFavorite.totalCookTime = Recipe.TotalCookTime
+                                        newFavorite.vegan = Recipe.Vegan
+                                        
+                                        do{
+                                            try viewContext.save()
+                                        }
+                                        catch{
+                                            print(error.localizedDescription)
+                                        }
+                                    }else{
+                                        showAlert = true
+                                    }
+       
+                                }
+                                .frame(maxWidth: .infinity)
+                                .foregroundColor(Color("White"))
+                                .buttonStyle(.plain)
+                                .frame(maxWidth: 150, maxHeight: 40)
+                                .background( Color("Yellow"))
+                                .foregroundColor(Color("White"))
+                                .clipShape(Capsule())
+                            }
                         }
                         .padding(.top, 30)
                         .padding(.leading, 30)
@@ -131,53 +175,6 @@ struct IndividualRecipe: View {
                     .frame(maxHeight: .infinity, alignment: .top)
                     
                     VStack{
-                        if !comingFromInd{
-                            Button("Add to Favorites 🍴"){
-                                
-                                var exists = false
-                                for r in FavoriteRecipes {
-                                    if Int(r.id) == Recipe.id{
-                                        exists = true
-                                        break
-                                    }
-                                }
-                                
-                                if !exists{
-                                    let newFavorite = FavRecipe(context: viewContext)
-                                    newFavorite.id = Int64(Recipe.id)
-                                    newFavorite.author = Recipe.Author
-                                    newFavorite.categories = Recipe.Categories
-                                    newFavorite.cookingInstructions = Recipe.CookingInstructions
-                                    newFavorite.desc = Recipe.Description
-                                    newFavorite.favorite = true
-                                    newFavorite.image = Recipe.Image
-                                    newFavorite.ingredients = Recipe.Ingredients
-                                    newFavorite.name = Recipe.Name
-                                    newFavorite.rating = Int64(Recipe.Rating)
-                                    newFavorite.totalCookTime = Recipe.TotalCookTime
-                                    newFavorite.vegan = Recipe.Vegan
-                                    
-                                    do{
-                                        try viewContext.save()
-                                    }
-                                    catch{
-                                        let nsError = error as NSError
-                                        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-                                    }
-                                }else{
-                                    showAlert = true
-                                }
-   
-                            }
-                            .frame(maxWidth: .infinity)
-                            .foregroundColor(Color("White"))
-                            .buttonStyle(.plain)
-                            .frame(maxWidth: 150, maxHeight: 40)
-                            .background( Color("Yellow"))
-                            .foregroundColor(Color("White"))
-                            .clipShape(Capsule())
-                        }
-
 
                         ScrollView{
                             
@@ -248,7 +245,7 @@ struct IndividualRecipe: View {
                 }
             
                 .alert( isPresented: $showAlert){
-                    Alert(title: Text("This is already in your favorites ⭐️"), dismissButton: .default(Text("Cool, thanks beans")))
+                    Alert(title: Text("This is already in your favorites ⭐️"), dismissButton: .default(Text("Dismiss")))
                 }
             
                 .navigationBarBackButtonHidden(true)

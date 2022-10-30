@@ -23,7 +23,6 @@
 		6E80603328EB5185003E7194 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E80603228EB5185003E7194 /* SearchBar.swift */; };
 		6E80603528EB8DF3003E7194 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E80603428EB8DF3003E7194 /* Recipe.swift */; };
 		6E80603728EC27F0003E7194 /* viewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E80603628EC27F0003E7194 /* viewModel.swift */; };
-		6EA4B68D28EC42A800D07A6C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6EA4B68C28EC42A800D07A6C /* GoogleService-Info.plist */; };
 		6EB09FE928F9AFBB0023D14F /* IndividualRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB09FE828F9AFBB0023D14F /* IndividualRecipe.swift */; };
 		6EB4283F2908260700AD66A1 /* Favorite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4283D2908260700AD66A1 /* Favorite.xcdatamodeld */; };
 		6EB42860290827AB00AD66A1 /* persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4285F290827AB00AD66A1 /* persistance.swift */; };
@@ -67,7 +66,6 @@
 		6E80603228EB5185003E7194 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		6E80603428EB8DF3003E7194 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		6E80603628EC27F0003E7194 /* viewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewModel.swift; sourceTree = "<group>"; };
-		6EA4B68C28EC42A800D07A6C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6EA4B68E28EC4C3900D07A6C /* CapitainCook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CapitainCook.entitlements; sourceTree = "<group>"; };
 		6EB09FE828F9AFBB0023D14F /* IndividualRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualRecipe.swift; sourceTree = "<group>"; };
 		6EB4283E2908260700AD66A1 /* Favorite.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Favorite.xcdatamodel; sourceTree = "<group>"; };
@@ -138,7 +136,6 @@
 		6E98DFE928E5A61D00DDE33D /* screens */ = {
 			isa = PBXGroup;
 			children = (
-				6EFDEDBC28DA370600B65176 /* CapitainCookApp.swift */,
 				6EFDEDCC28DA601700B65176 /* Onboarding.swift */,
 				6EFDEDBE28DA370600B65176 /* ContentView.swift */,
 				6E2FC16A28E1CA9800032602 /* Settings.swift */,
@@ -191,6 +188,7 @@
 		6EFDEDBB28DA370600B65176 /* CapitainCook */ = {
 			isa = PBXGroup;
 			children = (
+				6EFDEDBC28DA370600B65176 /* CapitainCookApp.swift */,
 				6E544243290EB84F0022EBD3 /* Utils */,
 				6E544240290EB6130022EBD3 /* Extensions */,
 				6EA4B68E28EC4C3900D07A6C /* CapitainCook.entitlements */,
@@ -199,7 +197,6 @@
 				6E98DFE928E5A61D00DDE33D /* screens */,
 				6E98DFE828E5A60400DDE33D /* models */,
 				6EFDEDC028DA370700B65176 /* Assets.xcassets */,
-				6EA4B68C28EC42A800D07A6C /* GoogleService-Info.plist */,
 				6EFDEDC228DA370700B65176 /* Preview Content */,
 				6ED09EE628DA7CB400EA968C /* RainFall.sks */,
 			);
@@ -292,7 +289,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EFDEDC428DA370700B65176 /* Preview Assets.xcassets in Resources */,
-				6EA4B68D28EC42A800D07A6C /* GoogleService-Info.plist in Resources */,
 				6EFDEDC128DA370700B65176 /* Assets.xcassets in Resources */,
 				6ED09EE728DA7CB400EA968C /* RainFall.sks in Resources */,
 			);

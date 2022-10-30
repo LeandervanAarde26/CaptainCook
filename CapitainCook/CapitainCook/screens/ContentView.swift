@@ -1,6 +1,6 @@
 
 import SwiftUI
-import Firebase
+
 
 struct ContentView: View {
 //    @Environment(\.colorScheme) private var colorScheme: ColorScheme
