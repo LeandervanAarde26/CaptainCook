@@ -5,6 +5,7 @@ import SwiftUI
 struct ContentView: View {
     @Environment(\.colorScheme) private var colorScheme: ColorScheme
     @ObservedObject var model = viewModel()
+    @State var something: Bool = false
     @Environment(\.managedObjectContext) private var viewContext
     init() {
         let navBarAppearance = UINavigationBar.appearance()
@@ -24,15 +25,9 @@ struct ContentView: View {
             
             ScrollView(.horizontal){
                 HStack{
-                    Preview(Emoji: "🥗", Extra: "\(model.allRecipes.filter({$0.Vegan == true }).count)", Text: "Vegan Recipes"){
-                        MainView()
-                    }
-                    Preview(Emoji: "🍝", Extra: "\(model.allRecipes.count)", Text: "Total Recipes"){
-                        MainView()
-                    }
-                    Preview(Emoji: "⭐️", Extra: "\(FavoriteRecipes.count)", Text: "Favorite Recipes"){
-                        MainView()
-                    }
+                    Preview(Emoji: "🥗", Extra: "\(model.allRecipes.filter({$0.Vegan == true }).count)", Text: "Vegan Recipes", selected: $something)
+                    Preview(Emoji: "🍝", Extra: "\(model.allRecipes.count)", Text: "Total Recipes", selected: $something)
+                    Preview(Emoji: "⭐️", Extra: "\(FavoriteRecipes.count)", Text: "Favorite Recipes", selected: $something)
                 }
             }
             Text("Top 3 Recipes")
@@ -48,9 +43,7 @@ struct ContentView: View {
                             IndividualRecipe(Recipe: recipe, comingFromInd: false)
                                 .environment(\.managedObjectContext, viewContext)
                         } label: {
-                            CardView(rating: String(recipe.Rating), cookTime: recipe.TotalCookTime, vegan: recipe.Vegan, heading: recipe.Name, Image: recipe.Image){
-                                MainView()
-                            }
+                            CardView(rating: String(recipe.Rating), cookTime: recipe.TotalCookTime, vegan: recipe.Vegan, heading: recipe.Name, Image: recipe.Image)
                         }
                     }
                 }

@@ -33,7 +33,7 @@ struct Favorites: View {
                             IndividualRecipe(Recipe: recipes(id: Int(recipe.id), Author: recipe.author ?? "//", Categories: recipe.categories ?? [] , CookingInstructions: recipe.cookingInstructions ?? [], Description: recipe.desc ?? "//", Favorite: recipe.favorite, Image: recipe.image ?? "//", Ingredients: recipe.ingredients ?? [], Name: recipe.name ?? "//", Rating: Int(recipe.rating), Vegan: recipe.vegan, TotalCookTime: recipe.totalCookTime ?? "//"), comingFromInd: true)
                                 .environment(\.managedObjectContext, viewContext)
                         }label: {
-                            CardView(rating: String(recipe.rating), cookTime: recipe.totalCookTime ?? "//", vegan: recipe.vegan, heading: recipe.name ?? "//",  Image: recipe.image ?? "//"){MainView()}
+                            CardView(rating: String(recipe.rating), cookTime: recipe.totalCookTime ?? "//", vegan: recipe.vegan, heading: recipe.name ?? "//",  Image: recipe.image ?? "//")
                         }
                         .contextMenu {
                             Button(role: .destructive) {

@@ -9,6 +9,8 @@ extension UIScreen{
 
 struct SplashScreen: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @ObservedObject var model = viewModel()
+    @State var recipes: [recipes] = []
     
     @State var screenActive:Bool = false
     @State private var shouldAnimate = false
@@ -72,8 +74,11 @@ struct SplashScreen: View {
                     }
                 }
                 .onAppear {
+                    model.getData()
+                    self.recipes = model.allRecipes
+                    
                     self.showProgress = true
-                    DispatchQueue.main.asyncAfter(deadline: .now()+3.0){
+                    DispatchQueue.main.asyncAfter(deadline: .now()+1.0){
                         withAnimation{
                             self.currentColor = Color("Yellow")
                             self.currentImage = "DarkHat"
@@ -81,7 +86,7 @@ struct SplashScreen: View {
                         }
                     }
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now()+7.0){
+                    DispatchQueue.main.asyncAfter(deadline: .now()+2.0){
                         withAnimation{
                             self.screenActive = true
                         }

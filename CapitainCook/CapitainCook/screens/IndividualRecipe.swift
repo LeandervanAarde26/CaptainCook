@@ -239,14 +239,13 @@ struct IndividualRecipe: View {
             .alert( isPresented: $showAlert){
                   Alert(title: Text("This is already in your favorites ⭐️"), dismissButton: .default(Text("Dismiss")))
               }
-
         }
     }
 }
 
-
-struct IndividualRecipe_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
-    }
-}
+//
+//struct IndividualRecipe_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainView()
+//    }
+//}

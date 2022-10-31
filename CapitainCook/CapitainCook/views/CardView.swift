@@ -7,23 +7,22 @@
 
 import SwiftUI
 
-struct CardView <Content: View>: View{
+struct CardView: View{
 //    var recipe: recipes
     var rating: String
     var cookTime: String
     var vegan : Bool
     var heading: String
     var PreviewPhoto: String
-    let content: Content
+
     
-    init(rating: String, cookTime: String, vegan: Bool, heading: String, Image: String,  @ViewBuilder contentBuilder: () -> Content){
+    init(rating: String, cookTime: String, vegan: Bool, heading: String, Image: String){
         
         self.rating = rating
         self.cookTime = cookTime
         self.vegan = vegan
         self.heading = heading
         self.PreviewPhoto = Image
-        self.content = contentBuilder()
         
     }
     

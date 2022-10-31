@@ -11,6 +11,7 @@ class viewModel: ObservableObject{
     @Published var allRecipes: [recipes] = []
     
     func getData(){
+        
         print("Hey hey hey")
         guard let url = URL(string: "https://captaincook.s3.af-south-1.amazonaws.com/AllRecipes.JSON") else { return }
         
@@ -31,6 +32,7 @@ class viewModel: ObservableObject{
     
                         print("Retrieved Recipes")
                         print(decodeItems)
+                    
                     } catch let error {
                         print("Shit, it didn't work: \(error)")
                     }

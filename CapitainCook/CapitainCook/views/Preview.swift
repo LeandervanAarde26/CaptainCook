@@ -7,21 +7,21 @@
 
 import SwiftUI
 
-struct Preview <Content: View>: View {
+struct Preview : View {
     var Emoji: String
     var Extra: String
     var Text : String
-    let content: Content
-
+//    let content: Content
+    @Binding var selected : Bool
     
-    init(Emoji: String, Extra: String, Text: String,  @ViewBuilder contentBuilder: () -> Content){
-        
-        self.Emoji = Emoji
-        self.Extra = Extra
-        self.Text = Text
-        self.content = contentBuilder()
-        
-    }
+//    init(Emoji: String, Extra: String, Text: String, selected: Bool){
+//
+//        self.Emoji = Emoji
+//        self.Extra = Extra
+//        self.Text = Text
+//        self.selected = selected
+////        self.content = contentBuilder()
+//    }
     
     var body: some View {
         VStack{
@@ -39,20 +39,24 @@ struct Preview <Content: View>: View {
                 .foregroundColor(Color("Text"))
                 .padding(.bottom, 30)
         }
+        .onAppear{
+            print(selected)
+        }
         .padding()
         .background(
         RoundedRectangle(cornerRadius: 20)
             .aspectRatio(1.0, contentMode: .fit)
             .frame(maxHeight: 150)
-            .foregroundColor(Color("Main"))
+            .foregroundColor(selected ? Color("Yellow") : Color("Main"))
             .shadow(color: .black.opacity(0.2), radius: 4, x: 1, y: 2)
             .padding(.bottom, 20)
+//        @ViewBuilder contentBuilder: () -> Content
         )
     }
 }
 
-struct Preview_Previews: PreviewProvider {
-    static var previews: some View {
-       MainView()
-    }
-}
+//struct Preview_Previews: PreviewProvider {
+//    static var previews: some View {
+//       MainView()
+//    }
+//}
