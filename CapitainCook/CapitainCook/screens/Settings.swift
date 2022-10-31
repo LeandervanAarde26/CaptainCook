@@ -119,7 +119,7 @@ struct Settings: View {
                         .frame(height: 20)
                     
                     Button("View Github") {
-                        openURL(URL(string: "https://www.apple.com")!)
+                        openURL(URL(string: "https://www.Github.com/LeandervanAarde")!)
                     }
                     .frame(maxWidth: .infinity)
                     .frame( height: 50)
