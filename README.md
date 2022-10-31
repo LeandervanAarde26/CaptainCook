@@ -42,10 +42,10 @@
 ## Table of Contents
 
 * :cook: [About the Project](#about-the-project)
-* ::cook: [Project Description](#project-description)
+* :cook: [Project Description](#project-description)
 * :cook: [Built With](#built-with)
-* :cook:: [Getting Started](#getting-started)
-* :cook:: [Prerequisites](#prerequisites)
+* :cook: [Getting Started](#getting-started)
+* :cook: [Prerequisites](#prerequisites)
 * :cook: [How to install](#how-to-install)
 * :cook: [Features and Functionality](#features-and-functionality)
 * :cook: [Concept Process](#concept-process)
