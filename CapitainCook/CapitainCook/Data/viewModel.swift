@@ -34,7 +34,7 @@ class viewModel: ObservableObject{
                         print(decodeItems)
                     
                     } catch let error {
-                        print("Shit, it didn't work: \(error)")
+                        print(" it didn't work: \(error)")
                     }
                 }
             }
