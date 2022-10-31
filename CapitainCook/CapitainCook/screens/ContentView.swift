@@ -78,7 +78,7 @@ struct ContentView: View {
         .onAppear(){
             model.getData()
             self.recipes = model.allRecipes
-            UserDefaults.standard.set(true, forKey: "hasOpened")
+            UserDefaults.standard.set(false, forKey: "hasOpened")
         }
     }
     

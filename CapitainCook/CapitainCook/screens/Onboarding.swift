@@ -25,9 +25,21 @@ struct Onboarding: View {
                     .padding()
                 
                 VStack{
-                    //                        Images are going to go inside here
+                    Image("\(onBoardingScreens[currentLocation].image2)")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame( height: 250)
+                        .padding(.trailing, 7)
+                        .clipped()
+                        
                 }
-                .frame(maxWidth:.infinity, maxHeight: 250 )
+                .frame(maxWidth: 350, maxHeight: 250 )
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                    .shadow(color: .black.opacity(0.2), radius: 4, x: 1, y: 2)
+                    .foregroundColor(.clear)
+                    .frame(maxHeight: 250)
+                )
                 
                 HStack{
                     HStack{

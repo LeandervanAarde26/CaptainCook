@@ -8,7 +8,7 @@
 import Foundation
 
 let onBoardingdata: [onBoard] = [
-    onBoard(Images: "CookingGuy", Colours: "Yellow", Titles: "View Recipes and information"),
-    onBoard(Images: "Pancakes", Colours: "Orange", Titles: "Switch between dark and light mode!"),
-    onBoard(Images: "PhoneGuy", Colours: "White", Titles: "Get details on a meal and save it to favorites")
+    onBoard(Images: "CookingGuy", Colours: "Yellow", Titles: "View Recipes and information", image2: "viewer" ),
+    onBoard(Images: "Pancakes", Colours: "Orange", Titles: "Switch between dark and light mode!", image2: "theme"),
+    onBoard(Images: "PhoneGuy", Colours: "White", Titles: "Get details on a meal and save it to favorites", image2: "ind" )
 ]

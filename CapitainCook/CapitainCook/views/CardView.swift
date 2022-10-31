@@ -36,9 +36,7 @@ struct CardView: View{
                     .frame(width: 100, height: 100)
                     .padding(.trailing, 7)
                     .clipped()
-                   
-                
-                
+
             } placeholder: {
                 Image(systemName: "photo")
             } //End of Image

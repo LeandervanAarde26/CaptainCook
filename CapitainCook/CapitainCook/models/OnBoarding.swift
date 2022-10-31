@@ -14,6 +14,7 @@ struct onBoard: Identifiable, Decodable {
     var Images: String
     var Colours: String
     var Titles: String
+    var image2: String
 //    var helperScreens: [String]
 }
 
