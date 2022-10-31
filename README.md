@@ -68,7 +68,7 @@
 <!--PROJECT DESCRIPTION-->
 ## About the Project
 <!-- header image of project -->
-![image1](https://drive.google.com/uc?export=view&id=17nVXBFXDrgwZwdAX_uq6rglDA5UJpNCn)
+![image1](https://drive.google.com/uc?export=view&id=1NvtP7e8Kk2VbSVmUCYjbD3rZrdkhtDVs)
 
 
 ### Project Description
@@ -113,7 +113,7 @@ https://developer.apple.com/xcode/
 
 <!-- note how you can use your gitHub link. Just make a path to your assets folder -->
 
-![image2](https://drive.google.com/uc?export=view&id=1JrKOl34AXmAOUkeYZ_hkI7sUGl52Et1u)
+![image2](https://drive.google.com/uc?export=view&id=18KvYI5LnWWZUYD97DchXi2VmSqVCqEyl)
 
 ### First time user? Use the onboarding screens.
 First time users get a brief overview of the applicaiton with the onboarding screens, showcasing each of the main functionallities in the application. Users that have opened the application will not see these views
@@ -124,7 +124,20 @@ You can view all the recipes and their previews on the app, all data that is sit
 ### View Information about recipes in an individual recipe view
 Like what you see on the previews? Tap on the recipe to get more information about the recipe like ingredients, cooking instructions and cooking time! 
 
-![image4](https://drive.google.com/uc?export=view&id=1tm55oe94wZxuD8tVqSA2FB50OdqiBrzk)
+### Save your favorite Recipes to Favorites
+Like the recipe? Core Data has made it possible for users to save their favorite recipes into an entity to view at a later stage, delete the entity or clear all data
+
+### Amazon S3 Buckets
+Amazon S3 buckets are used to avoid data on the application
+
+### Themes!
+Users can change between light mode and dark mode in order to find what they like most! 
+
+### Filter and Search
+Looking for something specific? Users can filter all recipes and search for recipes that they want to see!
+
+
+![image4](https://drive.google.com/uc?export=view&id=14FdWPc3VabCd5CKPbskV1MBLFoNs25-u)
 
 <!-- CONCEPT PROCESS -->
 <!-- Briefly explain your concept ideation process -->
@@ -163,63 +176,61 @@ The `Development Process` is the technical implementations and functionality don
 <!-- stipulate all of the functionality you included in the project -->
 <!-- This is your time to shine, explain the technical nuances of your project, how did you achieve the final outcome!-->
 
-* During the development of this application I had utilised Kotlin to implement functionallity for the project. XML was used for the layout of the project
-* Category names are implemented dynamically through the use of a Object class file that holds all the names of the category, question ammounts are also added in dynamically by calculating the length of the current questions dataset.
-* Results are showcased and created dynamically based on the amount of questions in a particular category.
-* Questions , answers and iamges are populated dynamically and final score is showcased based on correct answers and length of category.
-* Highscore is saved if the users final score is higher than the highscore. Users are also able to reset all high scores. 
-* Visual feedback from application on every answer, if the answer is wrong visual feedback will showcase red and correct answer will showcase green
+* For this project I had used SwiftUI for the functionallity and layout of the project 
+* Data is implemented through the use of Amazon S3 buckets, through the use of a JSON file being uploaded to my bucket.
+* Core data was used for users to save , view and delete favorite recipes that have been pulled from the API
+* App themes were implemented through init functions in the Setting screen that would change the app appereance and Colors based on the chosen theme.
+
 
 #### Highlights
 <!-- stipulated the highlight you experienced with the project -->
-* Over the course of this project, a definite highlight was the implementation of Kotlin and XML, learning this was challenging and yet rewarding
-* Using Kotlin has taught me the basics of Android development, and although I have not implemented a huge amount of functionallity, I look forward to learning more about this language
+* One of the biggest highlights in this project was learning how to use SwiftUI and learn more about native iOS development. 
+* Using Core Data has been a huge highlight, while it is stil a bit abstract to me, I do believe I grasp the basics and it has been extremly rewarding to see it work.
 
 #### Challenges
 <!-- stipulated the challenges you faced with the project and why you think you faced it or how you think you'll solve it (if not solved) -->
-* The largest challenge I have faced throughout this entire project was the implementation of the timer found on each questions, while the actual countdown was not too challenging, it is moving on to the next activity that has shown to be extremly challenging. (was this issue resolved?)
-* Learning Kotlin was a challenge, this language has been a huge challenge considering that I am used to Javascript which follows a completely different approach when it comes to programming.
+* Due to how I structured the project, data parsing was a large challenge, I did overcome this by being a bit repetitive in my code, and calling date more than once.
+* Core data was a huge challenge, getting it to work was the largest portion of this project. I struggled to understand it and to implement it. I overcame this with one of the classes and videos that was given for homework, giving me a better understanding 
 
 #### Above And Beyond
 
 What aspects of this final build contribute to the `Above And Beyond` Component of your brief?
 <!-- what did you learn outside of the classroom and implement into your project-->
-* For the extra functionallity in this project I have implemented a timer that visually shows the user how much time they have left on the current question. When the timer has run out, the question will then be dismissed and it will move on to the next question
-* Categories have been placed into the application dynamically.
-* Images are shown on each question. 
+* For extra functionallity I had implemented S3 buckets to pull data from an online source, through making a JSON I was able to pull data. I would like to implement MongoDB in the future to have users upload data as well. 
+* Core data was used for favorites , giving users the ability to add , remove and clear favorites from core data
+* Images are not stored locally for recipes, they are all implemented with AsyncImage
 
 
 ### Future Implementation
 <!-- stipulate functionality and improvements that can be implemented in the future. -->
-*In Future I would like to improve on the UI of the application and making it more interactable, this application is fairly simple and I would like to learn more about Kotlin to make a more advanced project
+*I would like to improve the layout of the structure in this project, making it more accurate to a real project. 
 * I would like to implement a backend to the application, I see a lot of potential in this application and think the implementation of something like Firebase would make this application a lot more exciting
-* Another future improvement is making the application available on any Android device instead of only on mobile devices
 
 <!-- MOCKUPS -->
 ## Final Outcome
 
 ### Mockups
 
-![image10](https://drive.google.com/uc?export=view&id=1JrKOl34AXmAOUkeYZ_hkI7sUGl52Et1u)
-![image11](https://drive.google.com/uc?export=view&id=1tm55oe94wZxuD8tVqSA2FB50OdqiBrzk)
-![image12](https://drive.google.com/uc?export=view&id=17nVXBFXDrgwZwdAX_uq6rglDA5UJpNCn)
-![image13](https://drive.google.com/uc?export=view&id=1jqnlewl74Rb54zydoHkp6OKh_tmM1PYu)
+![image10](https://drive.google.com/uc?export=view&id=14FdWPc3VabCd5CKPbskV1MBLFoNs25-u)
+![image11](https://drive.google.com/uc?export=view&id=1N8wJwk3_jU_xri3oZlQGcyw7IyshjUyl)
+![image12](https://drive.google.com/uc?export=view&id=1NvtP7e8Kk2VbSVmUCYjbD3rZrdkhtDVs)
+![image13](https://drive.google.com/uc?export=view&id=18KvYI5LnWWZUYD97DchXi2VmSqVCqEyl)
 
-![image14](https://drive.google.com/uc?export=view&id=1raTHOkDhoyytfuzzpw1nroXFVT0-yCtU)
+![image14](https://drive.google.com/uc?export=view&id=1_uVVCYQ6oirY4yWCaletTgb78dMhRapQ)
 
 <!-- VIDEO DEMONSTRATION -->
 ### Video Demonstration
 To see a run through of the application, click below:
-[View Demonstration](https://drive.google.com/uc?export=view&id=1XbFiJF8frKygAfcdHmT-hYanntuFJIv9)
+[View Demonstration](https://drive.google.com/uc?export=view&id=1xHQ4Y3LM8q9QM4MO_H8LnhBCkZP507vt)
 
 
 
-See the [open issues](https://github.com/LeandervanAarde/Recognition/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/LeandervanAarde/CaptainCook/issues) for a list of proposed features (and known issues).
 
 <!-- AUTHORS -->
 ## Authors
 
-* [Leander van Aarde](https://github.com/LeandervanAarde/Recognition)
+* [Leander van Aarde](https://github.com/LeandervanAarde/CaptainCook)
 
 <!-- LICENSE -->
 ## License
@@ -230,13 +241,14 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 * **Leander van Aarde** -(mailto: Leander.vaonline@gmail.com) - [@instagram_handle](https://www.instagram.com/_.leander_e/) 
-* **Project Link** - https://github.com/LeandervanAarde/Recognition
+* **Project Link** - https://github.com/LeandervanAarde/CaptainCook
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 <!-- all resources that you used and Acknowledgements here -->
 * [StackOverflow](https://stackoverflow.com/)
-* [Kotlin Documentation](https://developer.android.com/kotlin)
-* [Questions from Parade](https://parade.com/977752/samuelmurrian/movie-trivia/)
+* [HackingWithSwift](https://www.hackingwithswift.com/)
+* [Better Programming](https://betterprogramming.pub/swiftui-app-theme-switch-241a79574b87)
+* [Kavsoft](https://www.youtube.com/watch?v=_Ssae8NLHUs)
 
 * [images were found on Google](https://www.google.com/)
