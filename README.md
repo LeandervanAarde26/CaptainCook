@@ -250,5 +250,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 * [HackingWithSwift](https://www.hackingwithswift.com/)
 * [Better Programming](https://betterprogramming.pub/swiftui-app-theme-switch-241a79574b87)
 * [Kavsoft](https://www.youtube.com/watch?v=_Ssae8NLHUs)
+* [Reinhard De Beer](https://Github.com/EpicBlue1)
 
-* [images were found on Google](https://www.google.com/)
+* [images were found on Unsplash](https://www.unsplash.com/)
